@@ -60,4 +60,4 @@
     - 准实时巡检
 * 外部门感谢邮件模版
 * 奖惩制度
-* 应急预案模版
+* [应急预案模版](templates/contingency_plan.md)
