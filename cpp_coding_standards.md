@@ -17,6 +17,8 @@ C++编码规范
 
 但本编程规范是带有强烈个人理念的、有态度的编程规范，无意适应、取悦众口。
 
+对于仅关心具体编程规范的读者，可以直接跳过“体例结构”、“理念”两节，从“代码格式化”开始阅读。
+
 体例结构
 --------
 
@@ -157,6 +159,28 @@ __样例__
 * 代码粘贴拷贝
 * 手工重复测试
 * 忽视代码规范
+
+品质的良好例子：
+
+遵循UNIX编程哲学，详见[《The Art of Unix Programming》之《Basics of the Unix Philosophy》](http://homepage.cs.uri.edu/~thenry/resources/unix_art/ch01s06.html)
+
+> * Rule of Modularity: Write simple parts connected by clean interfaces.
+> * Rule of Clarity: Clarity is better than cleverness.
+> * Rule of Composition: Design programs to be connected to other programs.
+> * Rule of Separation: Separate policy from mechanism; separate interfaces from engines.
+> * Rule of Simplicity: Design for simplicity; add complexity only where you must.
+> * Rule of Parsimony: Write a big program only when it is clear by demonstration that nothing else will do.
+> * Rule of Transparency: Design for visibility to make inspection and debugging easier.
+> * Rule of Robustness: Robustness is the child of transparency and simplicity.
+> * Rule of Representation: Fold knowledge into data so program logic can be stupid and robust.
+> * Rule of Least Surprise: In interface design, always do the least surprising thing.
+> * Rule of Silence: When a program has nothing surprising to say, it should say nothing.
+> * Rule of Repair: When you must fail, fail noisily and as soon as possible.
+> * Rule of Economy: Programmer time is expensive; conserve it in preference to machine time.
+> * Rule of Generation: Avoid hand-hacking; write programs to write programs when you can.
+> * Rule of Optimization: Prototype before polishing. Get it working before you optimize it.
+> * Rule of Diversity: Distrust all claims for “one true way”.
+> * Rule of Extensibility: Design for the future, because it will be here sooner than you think.
 
 原则
 --------
@@ -767,6 +791,12 @@ __参考__
 
 ### L.3 C++11/14语言特性使用
 
+http://herbsutter.com/elements-of-modern-c-style/
+
+http://herbsutter.com/2013/06/05/gotw-91-solution-smart-pointer-parameters/
+
+https://github.com/numenta/nupic/wiki/C--11-14-References
+
 
 标准库与第三方库使用
 ------------------
@@ -797,3 +827,4 @@ __参考__
 * [C++ Core Guidelines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md)
 * [NuPIC C++ Coding Guide](https://github.com/numenta/nupic/wiki/C-Coding-Guide)
 * [林锐的“高质量C++/C 编程指南”](http://www.chinastor.org/upload/2014-04/14040815326461.pdf)
+* [Principles Wiki](http://principles-wiki.net/principles:start)
