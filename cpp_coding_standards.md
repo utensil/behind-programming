@@ -228,6 +228,30 @@ __贯彻手段__
 
 团队应在代码基形成初期就对代码格式达成统一共识，集中将代码格式统一，并提供统一工具在每次commit前自动格式化，确保后继无需再为格式操心。
 
+一个优秀的代码格式化工具是[Astyle](http://astyle.sourceforge.net/astyle.html)，本规范的格式可以用如下选项运行Astyle：
+
+```
+astyle --recursive --indent=spaces=2 *.cpp *.h
+```
+
+根据在F.5中对花括号换行风格的选择，还可以增加不同的`--style`选项，详见F.5。
+
+还可以增加如下选项使之符合本规范风格：
+
+* `--indent-col1-comments` / `-Y`：将注释和下一行代码对齐。
+* `--break-blocks` / `-f`： 'if', 'for', 'while'等代码块前后增加1个空行。
+* `--pad-oper` / `-p`：二元操作符两侧增加1个空格。
+* `--unpad-paren` / `-U`：确保括号两侧无空格。
+* `--align-pointer=type --align-reference=type` / `-k1 -W1`：确保`*`和`&`靠近类型而不是变量名。
+* `--add-brackets` / `-j`：确保'if', 'for', 'while'等代码块如果只有1条语句，依然加花括号。
+* `--remove-comment-prefix` / `-xp`：去掉多行注释每行的`*`前缀。
+* `--max-code-length=80 --break-after-logical` / `-xC80 -xL`：在逻辑操作符、逗号、括号、分号或空格处断开，使得每行长度小于80。
+
+其他值得注意的地方：
+
+* 实际格式化之前，请使用`--dry-run`测试效果。
+* 对于外部代码或其他不希望格式化的代码，请使用`--exclude=`选项排除
+
 __参考__
 
 http://llvm.org/docs/CodingStandards.html#introduction :
@@ -413,47 +437,53 @@ __参考__
 ### F.5 括号
 
 * 严禁无花括号的if/else/for/while等语句。
-* 一致地使用两种花括号换行风格之一，详见样例。
+* 一致地使用花括号换行风格，详见贯彻手段。建议选择其中的“K & R”风格或“break”风格。
 
-__样例__
+__贯彻手段__
 
-花括号换行风格1（Java社区主流）：
+通过Astyle（见F.0）的`--style`选项。几个主要的选择：
+
+`--style=attach`：下称“attach”风格。
+
+开花括号向前跟随，闭花括号后若有类似`else`等语句则向后跟随，均间隔1个空格。Java社区主流。例如：
 
 ```cpp
-if(xxx) {
-  
-} else {
-  
-}
-
-try {
-  
-} catch(...) {
-  
+int Foo(bool isBar) {
+  if(isBar) {
+    bar();
+    return 1;
+  } else {
+    return 0;
+  }        
 }
 ```
 
-花括号换行风格2（C++社区较多见）：
+`--style=break`：下称“break”风格。
+
+开、闭花括号都在单独一行。C++社区较常见。例如：
 
 ```cpp
-if(xxx)
+int Foo(bool isBar)
 {
-
-}
-else
-{
-
-}
-
-try
-{
-
-}
-catch(...)
-{
-
+  if(isBar)
+  {
+    bar();
+    return 1;
+  }
+  else
+  {
+    return 0;
+  }
 }
 ```
+
+`--style=kr`：即“K & R”风格，R代表的Dennis Ritchie是C之父，K & R是《The C Programming Language》的作者。
+
+仅对于命名空间、类和方法定义，采用“break”风格；其他均采用“attach”风格。
+
+`--style=stroustrup`：即“Stroustrup”风格，他是C++之父，也是《The C++ Programming Language》的作者。
+
+仅对于方法定义，采用“break”风格；其他均采用“attach”风格。
 
 ### F.6 换行
 
@@ -658,7 +688,7 @@ TODO
 ### N.3 类型命名
 
 * 类型命名应采用`CamelCase`的格式，即每个单词首字母大写，其他字母小写，单词间直接相连。
-* 可以考虑使用前缀：类（C，代表class）、结构（S，代表struct）、类型定义（T，代表typedef）、枚举（E，代表enum）。
+* 可以考虑使用前缀：类（C，代表class）、结构（S，代表struct）、类型定义（T，代表typedef）、枚举（E，代表enum）、联合（U，代表union）。
 
 __样例__
 
