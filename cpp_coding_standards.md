@@ -643,6 +643,8 @@ https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#sf-
 ### N.0 命名一般规范
 
 * 命名应“名正言顺”，对被命名者，进行具体而不冗长地描述。
+* 命名应使用1个或数个英文单词，不应使用汉语拼音等。
+* 对于常见的业务对象命名，应该在设计阶段就给出一致的英文名，避免在代码的不同地方以近义词进行不一致的命名。
 * 命名应不使用缩写，除非该缩写众所周知或惯用。
 * 命名应不模糊抽象随意，如`data2`。
 * 类型、变量、常量等实体性质的命名，一般可采用“形容词/限定词-名词”的结构。
@@ -778,6 +780,8 @@ void handle(const InputType& in)
 
 程序中使用的每一个数字，应该以枚举或常量的方式定义，并通过名称清晰地揭示其含义与单位，通过表达式揭示起推算过程，并通过注释进一步加以说明。
 
+TODO 在合适的地方说明配置优于写死，以及应给出合理默认值等。
+
 __因由__
 
 从写代码者的角度：
@@ -835,9 +839,9 @@ const size_t PACKET_SIZE = 10 * 1024;
 
 ### 用RAII管理资源的申请与释放
 
-RAII（Resource Acquisition Is Initialization）是C++防止资源泄漏的一种惯用法（Idiom）。具体而言，RAII使用一个对象，在其构造时获取资源，在对象生命期控制对资源的访问使之始终保持有效，最后在对象析构的时候释放资源。
+[RAII（Resource Acquisition Is Initialization）](https://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization)是C++防止资源泄漏的一种惯用法（Idiom）。具体而言，RAII使用一个对象，在其构造时获取资源，在对象生命期控制对资源的访问使之始终保持有效，最后在对象析构的时候释放资源。
 
-资源包括内存、文件句柄、Socket句柄、数据库结果等。
+资源包括内存、锁、文件句柄、Socket句柄、数据库结果等。
 
 __因由__
 
@@ -856,8 +860,86 @@ __因由__
 
 __样例__
 
+不良的例子：
 
-### 变量使用前必须初始化
+```cpp
+
+bool doSomething()
+{
+  Object pObject = new Object();
+
+  int result = step1(*pObject);
+
+  if(result != 0)
+  {
+    delete pObject;
+    pObject = NULL;
+    return false;
+  }
+
+  // 内部可能抛出exception
+  step2();
+
+  delete pObject;
+  pObject = NULL;
+
+  return true;
+}
+
+```
+
+良好的例子：
+
+```cpp
+class ObjectGuard
+{
+  public:
+    ObjectGuard(Object* obj): m_obj(obj) {}
+
+    ~ObjectGuard()
+    {
+      delete m_obj;
+      m_obj = NULL;
+    }
+
+    // 此处应考虑拷贝构造函数等因素，此处略
+
+    Object & operator * ()
+    {
+      return *m_obj;
+    }
+
+    Object * operator -> ()
+    {
+      return m_obj;
+    }
+
+  private:
+    Object * m_obj;
+};
+
+
+bool doSomething()
+{
+  ObjectGuard pObject(new Object());
+
+  int result = step1(*pObject);
+
+  if(result != 0)
+  {
+    return false;
+  }
+
+  // 内部可能抛出exception
+  step2();
+
+  return true;
+}
+```
+
+更好的方式应该是使用C++11标准库的[`std::unique_ptr<T>`](http://en.cppreference.com/w/cpp/memory/unique_ptr)或[`shared_ptr<T>`](http://en.cppreference.com/w/cpp/memory/shared_ptr)来管理内存，[`std::lock_guard<std::mutex>`](http://en.cppreference.com/w/cpp/thread/lock_guard)等管理锁。
+
+### 变量应初始化，有且只有1个用途
 
 ### 严禁使用高危函数
 
