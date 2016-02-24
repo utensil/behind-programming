@@ -68,6 +68,7 @@ __参考__
 
 * 方法/函数
 * 定义文件/源文件
+* 团队/组织
 
 理念（Philosophy）
 -----------------
@@ -666,7 +667,7 @@ https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#nl1
 头文件是脸面。
 
 * 头文件的内容，包括自身的`#include`，应被头文件保护符(header guard, i.e. `ifndef/define/define`）所环绕，防止文件被重复包含，具体格式见样例。
-* 头文件应更少暴露实现细节。
+* 头文件应更少暴露实现细节，如使用[“Pimpl”惯用法](https://en.wikipedia.org/wiki/Opaque_pointer)。
 * 头文件应视为对外API或对内API，使用Doxygen格式进行注释，自动生成文档，详见F.1一节。
 * 一致地使用`.h`或`.hpp`作为C++头文件的文件名后缀。
 * 注意考虑F.2中提到的关于`#include`的规则。
@@ -724,9 +725,47 @@ https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#sf-
 
 __样例__
 
+__例外__
+
+作用域非常小，而含义因周围代码而较明显时，可使用短小命名。如：
+
+```cpp
+/*
+  良好的风格，简炼，更易读：
+
+  * 模板类型使用惯见的`T`
+  * 循环使用惯见的`i`、`j`、`k`等
+*/
+template<typename T>    // good
+void print(ostream& os, const vector<T>& v)
+{
+  for(int i = 0; i < v.end(); ++i)
+  {
+    os << v[i] << '\n';
+  }
+}
+
+/*
+  不良的风格，简单的代码变得冗长：
+*/
+template<typename Element_type>
+void print(ostream& target_stream, const vector<Element_type>& current_vector)
+{
+    for (int current_element_index = 0;
+            current_element_index < current_vector.end();
+            ++current_element_index
+    )
+    target_stream << current_vector[i] << '\n';
+}
+```
+
+参见[CCG ES.7: Keep common and local names short, and keep uncommon and nonlocal names longer](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#es7-keep-common-and-local-names-short-and-keep-uncommon-and-nonlocal-names-longer)
+
 __参考__
 
-https://en.wikipedia.org/wiki/Naming_convention_(programming)
+[Wikipedia的Naming Convention(programming)条目][wiki_naming_convention]
+
+[wiki_naming_convention]: https://en.wikipedia.org/wiki/Naming_convention_(programming)
 
 ### N.1 文件名
 
@@ -781,7 +820,7 @@ TODO
   - 静态变量，应该用`s_`前缀。
   - 共享内存变量，应采用`gg_`前缀。（TODO：存在争议）
   - 具备上述多个作用域的，按照`sgm`的顺序（符合英语语序）进行结合。
-* 适度使用易理解的、简化版的匈牙利命名法，如：指针（`p`，代表pointer）、整数（`i`，代表integer）、C风格字符串（`sz`，代表string ends with zero）、C++风格字符串（`str`，代表string）、容器（`vec/set/map/hash`，代表`std::vector/std::set/std::map`）等。
+* 适度使用易理解的、简化版的匈牙利命名法，如：指针（`p`，代表pointer）(TODO 探讨是否应该用`p_`前缀)、整数（`i`，代表integer）、C风格字符串（`sz`，代表string ends with zero）、C++风格字符串（`str`，代表string）、容器（`vec/set/map/hash`，代表`std::vector/std::set/std::map`）等。
 * 对于在一定语境内反复出现的基础对象，使用易于领会的类型缩写前缀，比如`hash`代表`unordered_map`等。（TODO：存在争议）
 * 对于在一定语境内反复出现的业务对象，坚持使用N.0中提到的“形容词/限定词-名词”结构。
 
@@ -815,7 +854,7 @@ __因由__
 因为：
 
 1. 需求的变化会威胁恒等式的成立，甚至迫使我们寻找新的恒等式；技术的错误（如内存覆盖）可能从意想不到的角度破坏其成立。
-2. 在这段代码的性能问题成为问题之前，其可维护性问题、运行异常定位就会先频频成为问题。而且，根据[]()，类型检查、静态断言等编译期检查机制，可以在不影响运行性能的情况下，防止很多条件的违反。而运行时检查，待真正需要优化性能时，总是有办法可以优化的。
+2. 在这段代码的性能问题成为问题之前，其可维护性问题、运行异常定位就会先频频成为问题。而且，[类型检查](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#p4-ideally-a-program-should-be-statically-type-safe)、静态断言等[编译期检查机制](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#p5-prefer-compile-time-checking-to-run-time-checking)，可以在不影响运行性能的情况下，防止很多条件的违反。而运行时检查，可以先遵循[CCG P.6](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#p6-what-cannot-be-checked-at-compile-time-should-be-checkable-at-run-time)和[CCG P.7](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#p7-catch-run-time-errors-early)，待真正需要优化性能时，总是有办法可以优化的。
 3. 多余的问题可以从3个方面考虑：
   - 被调用者应被视为一个自足的、会自我保护的主体来看待，它可能被很多并不做检查的调用者调用。
   - 调用者通过检查前一步的后置条件来保护被调用者，被调用者通过检查本步骤的前置条件保护自己，这是一种分工。
@@ -865,8 +904,6 @@ void handle(const InputType& in)
 幻数（Magic Number）又称魔数，指代码中出现的含义模糊、依据缺失的裸数字。
 
 程序中使用的每一个数字，应该以枚举或常量的方式定义，通过名称清晰地揭示其含义与单位，通过表达式揭示起推算过程，通过注释进一步加以说明，并在局部相对集中的地方定义（比如一个子模块里有一个文件定义子模块公共常量，整个项目也有一个文件定义项目公共常量）。
-
-TODO 在合适的地方说明配置优于写死，以及应给出合理默认值等。
 
 __因由__
 
@@ -970,7 +1007,7 @@ bool doSomething()
   }
 
   // 内部可能抛出exception
-  step2();
+  step2(pObject->aPublicMember);
 
   delete pObject;
   pObject = NULL;
@@ -1023,7 +1060,7 @@ bool doSomething()
   }
 
   // 内部可能抛出exception
-  step2();
+  step2(pObject->aPublicMember);
 
   return true;
 }
@@ -1031,7 +1068,81 @@ bool doSomething()
 
 更好的方式应该是使用C++11标准库的[`unique_ptr<T>`](http://en.cppreference.com/w/cpp/memory/unique_ptr)或[`shared_ptr<T>`](http://en.cppreference.com/w/cpp/memory/shared_ptr)来管理内存，[`lock_guard<std::mutex>`](http://en.cppreference.com/w/cpp/thread/lock_guard)等管理锁。
 
-### 变量应初始化，有且只有1个用途
+__参考__
+
+* [CCG R.1: Manage resources automatically using resource handles and RAII (Resource Acquisition Is Initialization)](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#r1-manage-resources-automatically-using-resource-handles-and-raii-resource-acquisition-is-initialization)
+* [CCG R.20: Use `unique_ptr` or `shared_ptr` to represent ownership](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#r20-use-unique_ptr-or-shared_ptr-to-represent-ownership)
+* [CCG R.21: Prefer `unique_ptr` over `shared_ptr` unless you need to share ownership](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#r21-prefer-unique_ptr-over-shared_ptr-unless-you-need-to-share-ownership)
+
+### 防止不必要的范围扩大
+
+* 严禁全局变量。
+* 避免污染全局命名空间：减少`using namespace xxx`的使用。头文件中禁用，定义文件中优先使用`using xxx::yyy`。
+* 
+
+### 变量的初始化和使用
+
+* 仅在即将初始化和使用时，声明变量。
+* 不应保留未使用的变量。
+* 不应该把1个变量用作多个用途。
+
+__因由__
+
+> Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away. —— Antoine de Saint-Exupery
+
+上面的“take away”不仅代表“去除”，也包含“合并”。
+
+远离初始化和使用的变量声明的坏处：
+
+* 代码可读性下降。
+* 容易引发误用。
+ 
+未使用的变量的坏处：
+
+* 可能它本来是有用的，但用错了别的变量，导致它被漏用。如果养成习惯留着未使用的变量，就难以发现漏用的变量。
+* 它可能与别的变量形似，从而被误用。
+
+多用途的变量的坏处：
+
+* 代码可读性下降：多个用途，容易让人难以理解代码意图，尤其是无关用途。
+* 状态残留：同一个变量前一次被使用时的状态，可能因为一些原因未清理干净，从而影响到后一次使用。
+* 资源泄露：指针、句柄类的变量，在复用时，可能导致原来指向的资源未正确释放。
+
+__样例__
+
+```cpp
+/*
+  不良的风格：
+
+  * 没有立刻初始化。
+  * 一行声明多个变量，违反F.6
+*/
+int i, j, k;
+// 100行无关代码
+i = 3;
+// 100行无关代码
+j = 4;
+// 100行无关代码
+k = i + j;
+
+/*
+  不良的风格：代码声明后没有使用。
+*/
+int neverUsed;
+
+/*
+  不良的风格：一个变量用作多个用途。
+*/
+ResultType result = step1();
+// ...判断result有效并使用的...
+result = step2();
+```
+__参考__
+
+* CCG ES.20: Always initialize an object
+* CCG ES.21: Don't introduce a variable (or constant) before you need to use it
+* CCG ES.22: Don't declare a variable until you have a value to initialize it with
+* CCG ES.26: Don't use a variable for two unrelated purposes
 
 ### 严禁使用高危函数
 
@@ -1102,7 +1213,10 @@ TODO：重新整理表述
 
 ### L.1 C语言特性使用
 
-* 克制对宏的使用
+* 克制对宏的使用：
+  - CCG ES.30: Don't use macros for program text manipulation
+  - CCG ES.31: Don't use macros for constants or "functions"
+  - CCG ES.33: If you must use macros, give them unique names
 
 ### L.2 C++98/03语言特性使用
 
@@ -1151,3 +1265,4 @@ __参考__
 * [NuPIC C++ Coding Guide](https://github.com/numenta/nupic/wiki/C-Coding-Guide)
 * [林锐的“高质量C++/C 编程指南”](http://www.chinastor.org/upload/2014-04/14040815326461.pdf)
 * [Principles Wiki](http://principles-wiki.net/principles:start)
+* [Common Weakness Enumeration](https://cwe.mitre.org/index.html)
