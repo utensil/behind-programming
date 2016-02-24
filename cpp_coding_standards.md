@@ -228,6 +228,30 @@ __贯彻手段__
 
 团队应在代码基形成初期就对代码格式达成统一共识，集中将代码格式统一，并提供统一工具在每次commit前自动格式化，确保后继无需再为格式操心。
 
+一个优秀的代码格式化工具是[Astyle](http://astyle.sourceforge.net/astyle.html)，本规范的格式可以用如下选项运行Astyle：
+
+```
+astyle --recursive --indent=spaces=2 *.cpp *.h
+```
+
+根据在F.5中对花括号换行风格的选择，还可以增加不同的`--style`选项，详见F.5。
+
+还可以增加如下选项使之符合本规范风格：
+
+* `--indent-col1-comments` / `-Y`：将注释和下一行代码对齐。
+* `--break-blocks` / `-f`： 'if', 'for', 'while'等代码块前后增加1个空行。
+* `--pad-oper` / `-p`：二元操作符两侧增加1个空格。
+* `--unpad-paren` / `-U`：确保括号两侧无空格。
+* `--align-pointer=type --align-reference=type` / `-k1 -W1`：确保`*`和`&`靠近类型而不是变量名。
+* `--add-brackets` / `-j`：确保'if', 'for', 'while'等代码块如果只有1条语句，依然加花括号。
+* `--remove-comment-prefix` / `-xp`：去掉多行注释每行的`*`前缀。
+* `--max-code-length=80 --break-after-logical` / `-xC80 -xL`：在逻辑操作符、逗号、括号、分号或空格处断开，使得每行长度小于80。
+
+其他值得注意的地方：
+
+* 实际格式化之前，请使用`--dry-run`测试效果。
+* 对于外部代码或其他不希望格式化的代码，请使用`--exclude=`选项排除
+
 __参考__
 
 http://llvm.org/docs/CodingStandards.html#introduction :
@@ -413,47 +437,53 @@ __参考__
 ### F.5 括号
 
 * 严禁无花括号的if/else/for/while等语句。
-* 一致地使用两种花括号换行风格之一，详见样例。
+* 一致地使用花括号换行风格，详见贯彻手段。建议选择其中的“K & R”风格或“break”风格。
 
-__样例__
+__贯彻手段__
 
-花括号换行风格1（Java社区主流）：
+通过Astyle（见F.0）的`--style`选项。几个主要的选择：
+
+`--style=attach`：下称“attach”风格。
+
+开花括号向前跟随，闭花括号后若有类似`else`等语句则向后跟随，均间隔1个空格。Java社区主流。例如：
 
 ```cpp
-if(xxx) {
-  
-} else {
-  
-}
-
-try {
-  
-} catch(...) {
-  
+int Foo(bool isBar) {
+  if(isBar) {
+    bar();
+    return 1;
+  } else {
+    return 0;
+  }        
 }
 ```
 
-花括号换行风格2（C++社区较多见）：
+`--style=break`：下称“break”风格。
+
+开、闭花括号都在单独一行。C++社区较常见。例如：
 
 ```cpp
-if(xxx)
+int Foo(bool isBar)
 {
-
-}
-else
-{
-
-}
-
-try
-{
-
-}
-catch(...)
-{
-
+  if(isBar)
+  {
+    bar();
+    return 1;
+  }
+  else
+  {
+    return 0;
+  }
 }
 ```
+
+`--style=kr`：即“K & R”风格，R代表的Dennis Ritchie是C之父，K & R是《The C Programming Language》的作者。
+
+仅对于命名空间、类和方法定义，采用“break”风格；其他均采用“attach”风格。
+
+`--style=stroustrup`：即“Stroustrup”风格，他是C++之父，也是《The C++ Programming Language》的作者。
+
+仅对于方法定义，采用“break”风格；其他均采用“attach”风格。
 
 ### F.6 换行
 
@@ -613,6 +643,8 @@ https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#sf-
 ### N.0 命名一般规范
 
 * 命名应“名正言顺”，对被命名者，进行具体而不冗长地描述。
+* 命名应使用1个或数个英文单词，不应使用汉语拼音等。
+* 对于常见的业务对象命名，应该在设计阶段就给出一致的英文名，避免在代码的不同地方以近义词进行不一致的命名。
 * 命名应不使用缩写，除非该缩写众所周知或惯用。
 * 命名应不模糊抽象随意，如`data2`。
 * 类型、变量、常量等实体性质的命名，一般可采用“形容词/限定词-名词”的结构。
@@ -628,7 +660,7 @@ https://en.wikipedia.org/wiki/Naming_convention_(programming)
 
 ### N.1 文件名
 
-* 一个模块内，如果文件比较多，可以通过目录对文件进行分组，建议1层，不要超过2层
+* 一个模块内，如果文件比较多，可以通过目录对文件进行分组，建议1层，不要超过2层。
 * 目录名全部小写，单词间用下划线`_`相连，一般最好只有1个单词。
 * 文件名全部小写，单词间用下划线`_`相连。
 * 文件名应具体而非抽象，可以通过文件名了解该文件的功能，但不宜太长。
@@ -658,7 +690,7 @@ TODO
 ### N.3 类型命名
 
 * 类型命名应采用`CamelCase`的格式，即每个单词首字母大写，其他字母小写，单词间直接相连。
-* 可以考虑使用前缀：类（C，代表class）、结构（S，代表struct）、类型定义（T，代表typedef）、枚举（E，代表enum）。
+* 可以考虑使用前缀：类（C，代表class）、结构（S，代表struct）、类型定义（T，代表typedef）、枚举（E，代表enum）、联合（U，代表union）。
 
 __样例__
 
@@ -696,19 +728,218 @@ TODO
 基础编码（Basics）
 -----------------------------
 
-### B.0 安全防御性编程
+### B.0 防御性编程
 
-TODO：重新表述，加上前置后置条件
+一段代码应通过校验确保前置条件满足，才执行主体逻辑，并校验后置条件满足，尤其是对于一个方法、一个类、一个模块而言。
 
-* 必然成立的事情恰恰是需要校验的
-* 其他人地方保障的东西，不代表一个方法、一个模块不需要进行自足的自我保护
-* 不能隐含地引入对假设的依赖
+代码的假设与依赖，应该通过上述校验来清晰表达出来，不应隐含地引入，或只在注释中说明。
 
-### 严禁使用幻数
+__因由__
 
-### RAII
+不能因为如下理由而不坚持防御性编程：
 
-### 变量使用前必须初始化
+1. 该条件（恒等式）显然/必然成立
+2. 过早考虑性能因素
+3. 觉得此类检查/保障在调用者和被调用者处重复，从而多余
+
+因为：
+
+1. 需求的变化会威胁恒等式的成立，甚至迫使我们寻找新的恒等式；技术的错误（如内存覆盖）可能从意想不到的角度破坏其成立。
+2. 在这段代码的性能问题成为问题之前，其可维护性问题、运行异常定位就会先频频成为问题。而且，根据[]()，类型检查、静态断言等编译期检查机制，可以在不影响运行性能的情况下，防止很多条件的违反。而运行时检查，待真正需要优化性能时，总是有办法可以优化的。
+3. 多余的问题可以从3个方面考虑：
+  - 被调用者应被视为一个自足的、会自我保护的主体来看待，它可能被很多并不做检查的调用者调用。
+  - 调用者通过检查前一步的后置条件来保护被调用者，被调用者通过检查本步骤的前置条件保护自己，这是一种分工。
+  - 一个系统真正出现引起损失的问题，往往是多个环节都存在缺失。为了一个系统的健壮和对疏失具备一定的抵抗力，适度的冗余是必要的。
+
+__样例__
+
+```cpp
+
+void handle(const InputType& in)
+{
+  // 检查输入参数
+  checkInput(in);
+
+  // 检查前置条件，state代指某个状态
+  checkPreCondition(state);
+
+  // 执行操作
+  OutputType out = op(state);
+
+  // 检查后置条件
+  checkPostCondition(state);
+
+  return out;
+}
+
+```
+
+### B.1 严禁使用幻数
+
+幻数（Magic Number）又称魔数，指代码中出现的含义模糊、依据缺失的裸数字。
+
+程序中使用的每一个数字，应该以枚举或常量的方式定义，并通过名称清晰地揭示其含义与单位，通过表达式揭示起推算过程，并通过注释进一步加以说明。
+
+TODO 在合适的地方说明配置优于写死，以及应给出合理默认值等。
+
+__因由__
+
+从写代码者的角度：
+
+每到一个需要确定1个数字的场景，都需要决定该数字的取值，从而带来取值的随意性，没有统一的推导依据。
+
+没有依据导致无法应对未考虑到的极端情况，没有一致的依据导致多个幻数间可能只有最短的板生效，其他都带来危险（如溢出）或损失（如截断）。
+
+从读代码者的角度：
+
+难以理解一段代码的意图，更难以确认其正确性和适用范围。
+
+从修改代码者的角度：
+
+需要修改这个幻数的取值时，难以找到和这个幻数同等含义和用场的所有幻数一起修改，极易改漏。
+
+__样例__
+
+良好的例子：
+
+```cpp
+/**
+  默认HTTP连接超时，单位：毫秒。
+*/
+const int DEFAULT_HTTP_CONNECT_TIMEOUT_IN_MS = 200;
+
+/**
+  每天的秒数。
+*/
+const long SECONDS_PER_DAY = 24 * 60 * 60;
+
+/**
+  每个key-value对中的key的大小限制
+*/
+const size_t KEY_SIZE = 128;
+
+/**
+  每个key-value对中的value的大小限制
+*/
+const size_t VALUE_SIZE = 512;
+
+/**
+  对value做UrlEncode的缓冲区大小
+
+  依据：最坏的情况下，全部需要encode，1个字节变成'%'+2个字节的HEX值，膨胀系数为3
+*/
+const size_t ENCODED_VALUE_SIZE = VALUE_SIZE * 3;
+
+/**
+  一个报文的大小限制：10kB
+*/
+const size_t PACKET_SIZE = 10 * 1024;
+
+```
+
+### 用RAII管理资源的申请与释放
+
+[RAII（Resource Acquisition Is Initialization）](https://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization)是C++防止资源泄漏的一种惯用法（Idiom）。具体而言，RAII使用一个对象，在其构造时获取资源，在对象生命期控制对资源的访问使之始终保持有效，最后在对象析构的时候释放资源。
+
+资源包括内存、锁、文件句柄、Socket句柄、数据库结果等。
+
+__因由__
+
+一般而言，一段代码会有多个出口，比如：
+
+* 某个条件满足，提前return
+* 某个条件满足，循环提前break
+* 某种异常情况，抛出exception
+* 等等等等
+
+或者申请多个资源。
+
+无论是1个资源多个出口，还是多个资源1个出口，或是多个资源多个出口，确保每个资源在每个出口处得到正确的释放，十分困难。纵然初次写代码时考虑周全了，也难以在后继修改中确保不遗漏。
+
+对于栈上分配的对象，C++保证无论以何种方式退出当前代码块时，都会调用该对象的析构函数，这就提供了一种减轻编程者心智负担、对代码健壮性加以保障的机制，应对这种机制，加以善用。
+
+__样例__
+
+不良的例子：
+
+```cpp
+
+bool doSomething()
+{
+  Object pObject = new Object();
+
+  int result = step1(*pObject);
+
+  if(result != 0)
+  {
+    delete pObject;
+    pObject = NULL;
+    return false;
+  }
+
+  // 内部可能抛出exception
+  step2();
+
+  delete pObject;
+  pObject = NULL;
+
+  return true;
+}
+
+```
+
+良好的例子：
+
+```cpp
+class ObjectGuard
+{
+  public:
+    ObjectGuard(Object* obj): m_obj(obj) {}
+
+    ~ObjectGuard()
+    {
+      delete m_obj;
+      m_obj = NULL;
+    }
+
+    // 此处应考虑拷贝构造函数等因素，此处略
+
+    Object & operator * ()
+    {
+      return *m_obj;
+    }
+
+    Object * operator -> ()
+    {
+      return m_obj;
+    }
+
+  private:
+    Object * m_obj;
+};
+
+
+bool doSomething()
+{
+  ObjectGuard pObject(new Object());
+
+  int result = step1(*pObject);
+
+  if(result != 0)
+  {
+    return false;
+  }
+
+  // 内部可能抛出exception
+  step2();
+
+  return true;
+}
+```
+
+更好的方式应该是使用C++11标准库的[`std::unique_ptr<T>`](http://en.cppreference.com/w/cpp/memory/unique_ptr)或[`shared_ptr<T>`](http://en.cppreference.com/w/cpp/memory/shared_ptr)来管理内存，[`std::lock_guard<std::mutex>`](http://en.cppreference.com/w/cpp/thread/lock_guard)等管理锁。
+
+### 变量应初始化，有且只有1个用途
 
 ### 严禁使用高危函数
 
@@ -753,7 +984,7 @@ TODO：重新整理表述
 
 ### M.3 主流程方法
 
-### M.4 写周全的if-else if-else
+### M.4 写周全的`if/else if/else`
 
 ### M.5 返回值风格的异常处理
 
