@@ -24,9 +24,9 @@ C++编码规范
 
 编程规范的编辑体例，应该像GoF在著名的《设计模式》中一样，构筑自洽完备的表述结构，就像代码的组织要遵循良好的结构一样。
 
-《Google C++ Style Guide》的“Definition/Pros/Cons/Decision”的体例，更像一份讨论权衡而不是规范，留下了很多模糊的空间，没有保持逻辑的自洽，更像一个折衷产物和半成品。《LLVM Coding Standards》的体例更像散文。《C++ Coding Standards》的“Item title/Summary/Examples/Exceptions/References”不够完备。《高质量C++/C 编程指南》
+《Google C++ Style Guide》的“Definition/Pros/Cons/Decision”的体例，更像一份讨论权衡而不是规范，留下了很多模糊的空间，没有保持逻辑的自洽，更像一个折衷产物和半成品。《LLVM Coding Standards》的体例更像散文。《C++ Coding Standards》的“Item title/Summary/Examples/Exceptions/References”不够完备。《高质量C++/C 编程指南》采用的规则条文式体例，每条规则都干净专注，有其可取之处，但本规范希望将相关的一系列规则融合成一体。
 
-本编程规范的编辑体例与组织结构，基本与C++之父Bjarne Stroustrup最新尚在Github上协作撰写的、面向C++1z的《C++ Core Guidelines》一致，从其他编程规范中，也吸取了部分元素。
+本编程规范的编辑体例与组织结构，基本与C++之父Bjarne Stroustrup最新尚在Github上协作撰写的、面向C++14的《C++ Core Guidelines》(下文简称`CCG`)一致，从其他编程规范中，也吸取了部分元素。
 
 编程规范由许多条编程规则组成，相关联的规则，组成小节。
 
@@ -408,7 +408,7 @@ TODO 待翻译；待纳入TODO、@deprecated等
 
 __例外__
 
-* 可以在长段代码块（如：类定义、namespace等）尾部的花括号右侧，以`//`注释说明对应的名称。（TODO 修正表述）
+* 可以在长段代码块（如类定义、namespace等，特别是有多重嵌套的）尾部的花括号右侧，以`//`注释说明对应的名称。
 * 在演示性的代码中，允许在行末使用`//`说明其结果与优劣，本规范的样例，使用该格式。
 
 __贯彻手段__
@@ -507,8 +507,27 @@ __参考__
 
 ### F.5 括号
 
-* 严禁无花括号的if/else/for/while等语句。
+* 当操作符优先级可能有疑问时（尤其是算术类、逻辑类、其他类等2种以上操作符混合时），使用圆括号明确表达优先级。
+* 严禁无花括号的`if`/`else`/`for`/`while`等语句。
 * 一致地使用花括号换行风格，详见贯彻手段。建议选择其中的“K & R”风格或“break”风格。
+
+__样例__
+
+```cpp
+if(a & flag != 0) {}   // 不良的例子：未正确理解优先级，代码运行不符合预期
+
+if((a & flag) != 0) {} // 良好的例子：通过括号确立优先级，确保正确性和可读性
+
+if(aCondition) doSomething(); // 不良的例子：无花括号的`if`语句
+
+/*
+  良好的例子：只有一行，也要有花括号。
+*/
+if(aCondition)
+{
+  doSomething();
+}
+```
 
 __贯彻手段__
 
@@ -555,6 +574,12 @@ int Foo(bool isBar)
 `--style=stroustrup`：即“Stroustrup”风格，他是C++之父，也是《The C++ Programming Language》的作者。
 
 仅对于方法定义，采用“break”风格；其他均采用“attach”风格。
+
+__参考__
+
+括号与操作符优先级：
+
+* [CCG ES.41: If in doubt about operator precedence, parenthesize](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#es41-if-in-doubt-about-operator-precedence-parenthesize)
 
 ### F.6 换行
 
@@ -894,10 +919,10 @@ void handle(const InputType& in)
 
 通过“约定优先于配置”的思路，避免配置的无限膨胀和误配：
 
-* 提供合理的、符合直觉并具备一致性的默认值，减少配置的数量和冗余
-* 通过尽可能少的配置项决定配置参数的组合，避免相互耦合却需要分别配置的配置项
-* 有默认约定不是不要配置，要在默认值的基础上通过配置预留深度定制的空间
-* 配置项名称应包含单位（如秒、毫秒），配置项应有注释
+* 提供合理的、符合直觉并具备一致性的默认值，减少配置的数量和冗余。
+* 通过尽可能少的配置项决定配置参数的组合，避免相互耦合却需要分别配置的配置项。
+* 有默认约定不是不要配置，要在默认值的基础上通过配置预留深度定制的空间。
+* 配置项名称应包含单位（如秒、毫秒），配置项应有注释。
 
 ### 严禁使用幻数
 
@@ -972,6 +997,8 @@ const size_t PACKET_SIZE = 10 * 1024;
 
 资源包括内存、锁、文件句柄、Socket句柄、数据库结果等。
 
+严禁在业务代码中出现`new`/`delete`对、`lock`/`unlock`对、`open`/`close`对等，应将其用合适的资源管理类封装在内，使得业务代码无需确保其成对出现。
+
 __因由__
 
 一般而言，一段代码会有多个出口，比如：
@@ -1024,7 +1051,7 @@ class ObjectGuard
 {
   public:
     ObjectGuard(Object* obj): m_obj(obj) {}
-
+    
     ~ObjectGuard()
     {
       delete m_obj;
@@ -1077,8 +1104,9 @@ __参考__
 ### 防止不必要的范围扩大
 
 * 严禁全局变量。
-* 避免污染全局命名空间：减少`using namespace xxx`的使用。头文件中禁用，定义文件中优先使用`using xxx::yyy`。
-* 
+* 避免污染全局命名空间：减少`using namespace xxx`的使用。头文件中禁用，定义文件中优先考虑直接在用时加命名空间前缀，其次考虑使用`using xxx::yyy`。
+* 局部变量的作用域应尽可能小。
+* 成员变量和成员方法，应尽可能减少可访问它的范围。
 
 ### 变量的初始化和使用
 
@@ -1147,6 +1175,8 @@ __参考__
 ### 严禁使用高危函数
 
 ### 重视警告
+
+应重视编译器和静态代码的警告，及时修正。
 
 方法体代码组织（Method Body）
 -----------------------------
