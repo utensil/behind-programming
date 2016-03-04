@@ -30,7 +30,7 @@
 * 不支持IE等古代浏览器
 * [HTML5]((https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML5))
 * [CSS3](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS3)
-	- 使用 [SCSS](http://sass-lang.com/guide)语法 来写
+  - 使用 [SCSS](http://sass-lang.com/guide)语法 来写
   - 不使用SASS、[Less](http://lesscss.org/)
 * JS
   - 使用 [ES6](http://es6-features.org/)（又称之为ES2015） 来写
@@ -39,7 +39,9 @@
   - 不使用：
     + ES4：大部分的IE只支持到这个程度，即很多人理解里的古代JS，语言/库特性缺失太严重
     + [ES5](http://yanhaijing.com/es5/)：大部分现代浏览器只支持到这个程度。ES5为JS打下来扎实的语言/库基础。
-    + [TypeScript](http://www.typescriptlang.org/)：微软倒腾出来的逆ES6历史潮流的ES5的超集。
+    + [TypeScript](http://www.typescriptlang.org/)：微软倒腾出来的ES5的超集，增加了类型支持。
+    + [CoffeeScript](http://coffeescript.org/)：Rails社区很火过
+    + 想要对比这些语言，请见[TypeScript vs. CoffeeScript vs. ES6](http://www.slideshare.net/NeilGreen1/type-script-vs-coffeescript-vs-es6)
   - 使用[Babel](https://babeljs.io/)将ES6预编译成ES5来在浏览器中运行
 * CSS框架选用众所周知的[Bootstrap](http://v4-alpha.getbootstrap.com/)
   - 直接选择其[版本4](http://blog.getbootstrap.com/2015/08/19/bootstrap-4-alpha/)
