@@ -38,6 +38,7 @@
   - 不使用SASS语法、[Less](http://lesscss.org/)，原因参见
     + [Less vs Sass? It’s time to switch to Sass](http://www.zingdesign.com/less-vs-sass-its-time-to-switch-to-sass/)
     + [Why Bootstrap 4 Means Sass Has Won](http://developer.telerik.com/featured/why-bootstrap-4-means-sass-has-won/)
+  - 建议过程中只使用SCSS的一个子集（主要是Variables、Nested、Mixins），将来可能考虑基于[PostCSS](https://github.com/postcss/postcss)提供类Scss特性的[PreCSS](https://github.com/jonathantneal/precss)
 * JS
   - 使用 [ES6](http://es6-features.org/)（又称之为ES2015） 来写
   - 英文资料参考[Overview of ECMAScript 6 features](https://github.com/lukehoban/es6features)
@@ -55,6 +56,7 @@
 * SASS框架：
   - 选择[Bourbon](http://bourbon.io/)+[Neat](http://neat.bourbon.io/)
   - 不选择[Compass](http://compass-style.org/)，原因主要是它太重了，见[Sass Frameworks: Compass or Bourbon?](http://www.sitepoint.com/compass-or-bourbon-sass-frameworks/)
+  - 如无必要，可以不要框架
 * JS框架选用类似[React](https://github.com/enaqx/awesome-react)但更轻的[Vue.js](http://vuejs.org/) ：
   - Vue.js的丰富资料，见[Awesome Vue.js](https://github.com/vuejs/awesome-vue)
   - Vue.js和其他前端框架的比较，请见[Comparison with Other Frameworks](http://vuejs.org/guide/comparison.html)
