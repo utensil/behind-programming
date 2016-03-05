@@ -81,3 +81,11 @@
 * [Front End Development Guidelines](http://taitems.github.io/Front-End-Development-Guidelines/)
 * [Front-end Style Guides](https://24ways.org/2011/front-end-style-guides/)
 * [20 Useful Docs and Guides for Front-End Developers](http://www.sitepoint.com/20-docs-guides-front-end-developers/)
+
+编辑器选择
+-------------
+
+建议选择[Sublime Text 3](http://www.sublimetext.com/3)，并搭配插件：
+
+* [Vue Syntax Highlight](https://github.com/vuejs/vue-syntax-highlight)
+* [EditorConfig](https://github.com/sindresorhus/editorconfig-sublime)
