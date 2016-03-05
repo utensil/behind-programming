@@ -28,9 +28,11 @@
 ----------------
 
 * 不支持IE等古代浏览器
-* [HTML5]((https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML5))
+* 字符编码选择UTF-8，而非GBK
+* [HTML5](https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML5)
+  - 使用[Jade](http://jade-lang.com/) 模版语言来写
 * [CSS3](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS3)
-  - 使用 [SCSS](http://sass-lang.com/guide)语法 来写
+  - 使用 [SCSS](http://sass-lang.com/guide) 语法来写
   - 不使用SASS、[Less](http://lesscss.org/)
 * JS
   - 使用 [ES6](http://es6-features.org/)（又称之为ES2015） 来写
@@ -87,5 +89,17 @@
 
 建议选择[Sublime Text 3](http://www.sublimetext.com/3)，并搭配插件：
 
-* [Vue Syntax Highlight](https://github.com/vuejs/vue-syntax-highlight)
 * [EditorConfig](https://github.com/sindresorhus/editorconfig-sublime)
+* [Vue Syntax Highlight](https://github.com/vuejs/vue-syntax-highlight)
+* [Jade](https://packagecontrol.io/packages/Jade)
+* [Sass/Scss](https://packagecontrol.io/search/Sass)
+* [Color Highlighter](https://packagecontrol.io/packages/Color%20Highlighter)
+* [Java​Script​Next - ES6 Syntax](https://packagecontrol.io/packages/JavaScriptNext%20-%20ES6%20Syntax)
+* [HTML5](https://packagecontrol.io/packages/HTML5)
+* [Convert To UTF8](https://packagecontrol.io/packages/ConvertToUTF8)
+* [Nodejs](https://packagecontrol.io/packages/Nodejs)
+* [Bootstrap 3 Snippets](https://packagecontrol.io/packages/Bootstrap%203%20Snippets)
+* [jQuery](https://packagecontrol.io/packages/jQuery)
+
+这些插件都可以通过[Sublime Text的插件/包管理器Package Control](https://packagecontrol.io/)来安装。
+
