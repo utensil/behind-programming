@@ -92,13 +92,13 @@
 * [EditorConfig](https://github.com/sindresorhus/editorconfig-sublime)
 * [Vue Syntax Highlight](https://github.com/vuejs/vue-syntax-highlight)
 * [Jade](https://packagecontrol.io/packages/Jade)
-* [Sass/Scss](https://packagecontrol.io/search/Sass)
+* [Sass](https://packagecontrol.io/search/Sass)
 * [Color Highlighter](https://packagecontrol.io/packages/Color%20Highlighter)
-* [Java​Script​Next - ES6 Syntax](https://packagecontrol.io/packages/JavaScriptNext%20-%20ES6%20Syntax)
+* [Java Script Next - ES6 Syntax](https://packagecontrol.io/packages/JavaScriptNext%20-%20ES6%20Syntax)
 * [HTML5](https://packagecontrol.io/packages/HTML5)
 * [Convert To UTF8](https://packagecontrol.io/packages/ConvertToUTF8)
 * [Nodejs](https://packagecontrol.io/packages/Nodejs)
-* [Bootstrap 3 Snippets](https://packagecontrol.io/packages/Bootstrap%203%20Snippets)
+* [Bootstrap 4 - Sublime Plugin](https://github.com/mdegoo/sublime-bootstrap4)
 * [jQuery](https://packagecontrol.io/packages/jQuery)
 
 这些插件都可以通过[Sublime Text的插件/包管理器Package Control](https://packagecontrol.io/)来安装。
