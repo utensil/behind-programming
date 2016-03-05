@@ -30,10 +30,14 @@
 * 不支持IE等古代浏览器
 * 字符编码选择UTF-8，而非GBK
 * [HTML5](https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML5)
-  - 使用[Jade](http://jade-lang.com/) 模版语言来写
+  - 大部分时候直接使用HTML来写
+  - 用[Emmet(旧称"Zen Coding")](http://docs.emmet.io/)和Snippets来提升录入效率
+  - 偶尔使用[Jade](http://jade-lang.com/) 模版语言来写
 * [CSS3](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS3)
   - 使用 [SCSS](http://sass-lang.com/guide) 语法来写
-  - 不使用SASS、[Less](http://lesscss.org/)
+  - 不使用SASS语法、[Less](http://lesscss.org/)，原因参见
+    + [Less vs Sass? It’s time to switch to Sass](http://www.zingdesign.com/less-vs-sass-its-time-to-switch-to-sass/)
+    + [Why Bootstrap 4 Means Sass Has Won](http://developer.telerik.com/featured/why-bootstrap-4-means-sass-has-won/)
 * JS
   - 使用 [ES6](http://es6-features.org/)（又称之为ES2015） 来写
   - 英文资料参考[Overview of ECMAScript 6 features](https://github.com/lukehoban/es6features)
@@ -47,7 +51,10 @@
   - 使用[Babel](https://babeljs.io/)将ES6预编译成ES5来在浏览器中运行
 * CSS框架选用众所周知的[Bootstrap](http://v4-alpha.getbootstrap.com/)
   - 直接选择其[版本4](http://blog.getbootstrap.com/2015/08/19/bootstrap-4-alpha/)
-  - 不选择目前受众最广的[版本3](http://getbootstrap.com/)，主要考虑到前端发展一日千里，版本3很快会失去支持，而且版本4提供了很多新的组件和特性。
+  - 不选择目前受众最广的[版本3](http://getbootstrap.com/)，主要考虑到前端发展一日千里，版本3很快会失去支持，而且版本4提供了很多新的组件和特性，尤其是[Flexbox](https://github.com/afonsopacifer/awesome-flexbox)相关的特性。
+* SASS框架：
+  - 选择[Bourbon](http://bourbon.io/)+[Neat](http://neat.bourbon.io/)
+  - 不选择[Compass](http://compass-style.org/)，原因主要是它太重了，见[Sass Frameworks: Compass or Bourbon?](http://www.sitepoint.com/compass-or-bourbon-sass-frameworks/)
 * JS框架选用类似[React](https://github.com/enaqx/awesome-react)但更轻的[Vue.js](http://vuejs.org/) ：
   - Vue.js的丰富资料，见[Awesome Vue.js](https://github.com/vuejs/awesome-vue)
   - Vue.js和其他前端框架的比较，请见[Comparison with Other Frameworks](http://vuejs.org/guide/comparison.html)
@@ -91,6 +98,7 @@
 
 * [EditorConfig](https://github.com/sindresorhus/editorconfig-sublime)
 * [Vue Syntax Highlight](https://github.com/vuejs/vue-syntax-highlight)
+* [Emmet](https://github.com/sergeche/emmet-sublime)
 * [Jade](https://packagecontrol.io/packages/Jade)
 * [Sass](https://packagecontrol.io/search/Sass)
 * [Color Highlighter](https://packagecontrol.io/packages/Color%20Highlighter)
