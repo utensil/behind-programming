@@ -30,9 +30,8 @@
 * 不支持IE等古代浏览器
 * 字符编码选择UTF-8，而非GBK
 * [HTML5](https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML5)
-  - 大部分时候直接使用HTML来写
-  - 用[Emmet(旧称"Zen Coding")](http://docs.emmet.io/)和Snippets来提升录入效率
-  - 偶尔使用[Jade](http://jade-lang.com/) 模版语言来写
+  - 直接使用HTML来写时，用[Emmet(旧称"Zen Coding")](http://docs.emmet.io/)和Snippets来提升录入效率
+  - 使用[Jade](http://jade-lang.com/) 模版语言来写时，用[HTML2jade](http://www.html2jade.org/)将HTML片段转换为Jade
 * [CSS3](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS3)
   - 使用 [SCSS](http://sass-lang.com/guide) 语法来写
   - 不使用SASS语法、[Less](http://lesscss.org/)，原因参见
@@ -106,10 +105,11 @@
 * [Color Highlighter](https://packagecontrol.io/packages/Color%20Highlighter)
 * [Java Script Next - ES6 Syntax](https://packagecontrol.io/packages/JavaScriptNext%20-%20ES6%20Syntax)
 * [HTML5](https://packagecontrol.io/packages/HTML5)
-* [Convert To UTF8](https://packagecontrol.io/packages/ConvertToUTF8)
 * [Nodejs](https://packagecontrol.io/packages/Nodejs)
 * [Bootstrap 4 - Sublime Plugin](https://github.com/mdegoo/sublime-bootstrap4)
 * [jQuery](https://packagecontrol.io/packages/jQuery)
+* [Convert To UTF8](https://packagecontrol.io/packages/ConvertToUTF8)
+* [Sublime Terminal](https://packagecontrol.io/packages/Terminal)
 
 这些插件都可以通过[Sublime Text的插件/包管理器Package Control](https://packagecontrol.io/)来安装。
 
