@@ -59,18 +59,26 @@
 * JS框架选用类似[React](https://github.com/enaqx/awesome-react)但更轻的[Vue.js](http://vuejs.org/) ：
   - Vue.js的丰富资料，见[Awesome Vue.js](https://github.com/vuejs/awesome-vue)
   - Vue.js和其他前端框架的比较，请见[Comparison with Other Frameworks](http://vuejs.org/guide/comparison.html)
-  - 使用官方的[脚手架vue-cli](https://github.com/vuejs/vue-cli)中的[webpack模版](https://github.com/vuejs-templates/webpack)来生成项目结构，包含：
+  - 使用官方的[脚手架vue-cli](https://github.com/vuejs/vue-cli)并采用[utensil/webpack](https://github.com/utensil/webpack)模版来生成项目结构，包含[官方webpack](https://github.com/vuejs-templates/webpack)模版中的：
     + [Webpack](https://webpack.github.io/) + [vue-loader](http://vuejs.github.io/vue-loader) 支持 `.vue`单文件组件
     + [Babel](https://babeljs.io/)来将ES6转换为ES5
     + [Karma](https://karma-runner.github.io)+[Jasmine](http://jasmine.github.io/)来做单元测试  
     + [inject-loader](https://github.com/plasticine/inject-loader)来做[Mock](http://vuejs.github.io/vue-loader/workflow/testing-with-mocks.html)
     + [eslint](http://eslint.org/) 做JS静态代码检查
     + [EditorConfig](http://editorconfig.org/) 来配置代码编辑器
-  - 额外选择[Building Large-Scale Apps(Using Vue.js)](http://vuejs.org/guide/application.html)中推荐的：
+  - 加上[Building Large-Scale Apps(Using Vue.js)](http://vuejs.org/guide/application.html)中推荐的：
     + [vue-router](https://github.com/vuejs/vue-router) 解决路由问题
     + [vue-resource](https://github.com/vuejs/vue-resource) 解决和后端[RESTful服务](https://github.com/marmelab/awesome-rest)通讯的问题
     + [Vuex](https://github.com/vuejs/vuex/) 实现 [Flux](https://facebook.github.io/flux/) ，或者采用兼容 React 和 Vue.js 的 [Redux](https://github.com/rackt/redux/)
-  - 额外选择：`TODO: 待将上述选择生成为1个模版`
+  - 再加上：
+    + `jade`
+    + `sass-loader` + `node-sass`
+    + [vue-async-data](https://github.com/vuejs/vue-async-data)
+    + [vueboot](https://github.com/Morgul/vueboot)
+    + 在进行Ajax请求时，请使用[`fetch` API标准](http://github.github.io/fetch/)，不要使用`jQuery.ajax()`或`XMLHttpRequest`，参见：
+      - [Fetch Living Standard](https://fetch.spec.whatwg.org/#fetch-api)
+      - [That’s so fetch!](http://jakearchibald.com/2015/thats-so-fetch/)
+      - [Using webpack with shims and polyfills](http://mts.io/2015/04/08/webpack-shims-polyfills/)
 
 前端开发规范参考
 ------------------
