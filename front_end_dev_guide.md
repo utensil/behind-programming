@@ -28,7 +28,7 @@
 ----------------
 
 * 不支持IE等古代浏览器
-* 字符编码选择UTF-8，而非GBK
+* 字符编码选择[UTF-8](http://htmlpurifier.org/docs/enduser-utf8.html)，而非GBK
 * [HTML5](https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML5)
   - 直接使用HTML来写时，用[Emmet(旧称"Zen Coding")](http://docs.emmet.io/)和Snippets来提升录入效率
   - 使用[Jade](http://jade-lang.com/) 模版语言来写时，用[HTML2jade](http://www.html2jade.org/)将HTML片段转换为Jade
