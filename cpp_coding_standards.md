@@ -900,7 +900,7 @@ void handle(const InputType& in)
 
 ```
 
-### 合理使用配置
+### B.1 合理使用配置
 
 首先反对将代码运行依赖的一些参数写死在代码里，以至于每次调整都必须修改代码。应有一种配置的意识，始终为各种参数提供修改配置即可调整的可能。
 
@@ -916,7 +916,7 @@ void handle(const InputType& in)
 * 有默认约定不是不要配置，要在默认值的基础上通过配置预留深度定制的空间。
 * 配置项名称应包含单位（如秒、毫秒），配置项应有注释。
 
-### 严禁使用幻数
+### B.2 严禁使用幻数
 
 幻数（Magic Number）又称魔数，指代码中出现的含义模糊、依据缺失的裸数字。
 
@@ -983,7 +983,7 @@ const size_t PACKET_SIZE = 10 * 1024;
 
 ```
 
-### 用RAII管理资源的申请与释放
+### B.3 用RAII管理资源的申请与释放
 
 [RAII（Resource Acquisition Is Initialization）](https://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization)是C++防止资源泄漏的一种惯用法（Idiom）。具体而言，RAII使用一个对象，在其构造时获取资源，在对象生命期控制对资源的访问使之始终保持有效，最后在对象析构的时候释放资源。
 
@@ -1093,14 +1093,14 @@ __参考__
 * [CCG R.20: Use `unique_ptr` or `shared_ptr` to represent ownership](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#r20-use-unique_ptr-or-shared_ptr-to-represent-ownership)
 * [CCG R.21: Prefer `unique_ptr` over `shared_ptr` unless you need to share ownership](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#r21-prefer-unique_ptr-over-shared_ptr-unless-you-need-to-share-ownership)
 
-### 防止不必要的范围扩大
+### B.4 防止不必要的范围扩大
 
 * 严禁全局变量，考虑更小的作用域，或者单例模式能否满足需求。
 * 避免污染全局命名空间：减少`using namespace xxx`的使用。头文件中禁用，定义文件中优先考虑直接在用时加命名空间前缀，其次考虑使用`using xxx::yyy`。
 * 局部变量的作用域应尽可能小。
 * 成员变量和成员函数，应尽可能减少可访问它的范围。
 
-### 变量应有清晰而唯一的用途
+### B.5 变量应有清晰而唯一的用途
 
 * 仅在即将初始化和使用时，声明变量。
 * 不应保留未使用的变量。
@@ -1165,9 +1165,46 @@ __参考__
 * CCG ES.22: Don't declare a variable until you have a value to initialize it with
 * CCG ES.26: Don't use a variable for two unrelated purposes
 
-### 严禁使用高危函数
+### B.6 规避已知编码问题
 
-### 重视警告
+不使用可能带来如下编码安全问题的高危函数，使用其更安全的替代者：
+
+* 缓冲区溢出
+* 类型安全
+* Shell安全
+* SQL注入、XSS等元字符转义型漏洞
+* CSRF等跨站型漏洞
+* 线程不安全
+* 参数校验缺失
+* 权限校验缺失
+* ……
+
+通过学习吸取前人教训，不重蹈编程反模式的覆辙。
+
+__因由__
+
+已经广为人知的坑，自己应该知道并规避，不要因为惰怠而付出血泪的代价。
+
+__参考__
+
+高危函数：
+
+* [MSDN: Security Development Lifecycle (SDL) Banned Function Calls](https://msdn.microsoft.com/en-us/library/bb288454.aspx)
+* [IBM developerWorks: 使您的软件运行起来: 防止缓冲区溢出](https://www.ibm.com/developerworks/cn/security/buffer-defend/)
+* Apple Developer Secure Coding Guide：
+  * [Types of Security Vulnerabilities](https://developer.apple.com/library/ios/documentation/Security/Conceptual/SecureCodingGuide/Articles/TypesSecVuln.html)
+  * [Security Development Checklists](https://developer.apple.com/library/prerelease/ios/documentation/Security/Conceptual/SecureCodingGuide/SecurityDevelopmentChecklists/SecurityDevelopmentChecklists.html)
+
+反模式：
+
+* [Common Weakness Enumeration (CWE)](https://cwe.mitre.org/data/index.html)
+* [What Errors Are Included in the Top 25 Software Errors?](http://www.sans.org/top25-software-errors/)
+* [Introduction to Software Engineering/Architecture/Anti-Patterns](https://en.wikibooks.org/wiki/Introduction_to_Software_Engineering/Architecture/Anti-Patterns)
+* [Wikipedia: Software Engineering Anti-pattern](https://en.wikipedia.org/wiki/Anti-pattern#Software_engineering)
+* [9 Anti-Patterns Every Programmer Should Be Aware Of](http://sahandsaba.com/nine-anti-patterns-every-programmer-should-be-aware-of-with-examples.html)
+* [Software Development AntiPatterns](https://sourcemaking.com/antipatterns/software-development-antipatterns)
+
+### B.7 重视警告
 
 应重视编译器和静态代码的警告，及时修正。
 
@@ -1217,13 +1254,13 @@ __贯彻手段__
 
 但也注意，如果过度追求很短的函数，可能带来很深的函数调用层次，同样也会不利于他人阅读和修改代码。所以要寻找深度和长度之间平衡点。
 
-### M.3 主流程函数
+### FB.3 主流程函数
 
 建议在一个子功能的最外层的主流程函数，采取如下方式：
 
 里面只有顺序调用多个步骤函数，每个函数没有入参也没有出参。通过成员变量来传递中间状态和结果。
 
-### M.4 写周全的`if/else if/else`
+### FB.4 写周全的`if/else if/else`
 
 对于任何需要通过`if`判断的代码，应：
 
@@ -1243,13 +1280,19 @@ __贯彻手段__
 
 __例外__
 
-唯一允许不写周全的`if/else if/else`的情况，是专用于异常情况或终止条件处理的短路`if`块。
+允许不写周全的`if/else if/else`的情况：
+
+* 专用于异常情况或终止条件处理的短路`if`块。
+* 专用于可选步骤的`if`块，应通过注释标明“可选步骤”这个语义。该例外不可滥用。
 
 __样例__
 
 ```cpp
 /*
-  良好的风格：枚举每种情况，对未能枚举的情况，给出了针对性处理。
+  良好的风格：
+
+  * 枚举每种情况，对未能枚举的情况，给出了针对性处理。
+  * 被比较的常量在==的前方，防止误将==写成=
 */
 if(CONDITION1 == value)
 {
@@ -1290,6 +1333,24 @@ int fun(int input)
 }
 
 /*
+  良好的风格： 专用于可选步骤的`if`块，通过注释标明“可选步骤”这个语义。
+*/
+void fun()
+{
+  mandatoryStep1();
+
+  mandatoryStep2();
+
+  // 可选：仅当XXX时
+  if(condition)
+  {
+    optionalStep();
+  }
+
+  mandatoryStep3();
+}
+
+/*
   不良的风格：
 
   * 多层裸`if`
@@ -1325,9 +1386,23 @@ else
 }
 ```
 
-### M.5 返回值风格的异常处理
+### FB.5 返回值风格的异常处理
 
-### M.6 C++异常风格的异常处理
+### FB.6 C++异常风格的异常处理
+
+要善用异常，不要如[Google C++ Style Guide： Exceptions](http://google.github.io/styleguide/cppguide.html#Exceptions)那般恐惧异常。
+
+在有限的集中的位置捕获所有异常：
+
+* `try...catch`块在一个函数体内的范围应尽可能大，将整个主逻辑全部包含，在末端对所有异常统一处理，不要一步一异常。
+* 上一条有个例外：`for/while`循环体，宜在每一次循环内捕获并处理异常，从而尽可能不让循环中止，除非本来就希望异常能中断循环。
+* 不要每层函数都处理异常。最里层的函数，一般都可以直接抛异常。中间层次的函数，一般不处理所调用函数的异常，统一交给外层的函数来处理。
+* 最外层一定要有兜底的异常捕获，避免不必要的程序终止。
+
+写异常安全的代码：
+
+* 任何时候都要假设代码可能异常被中断，包括被异常、`break`、`return`等，熟练使用RAII技术做好资源管理，防止资源泄漏，见B.3 。
+* 严禁使用带throw (XXXException)的异常声明，见FB.1 。
 
 类体代码组织
 ----------------
