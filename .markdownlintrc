@@ -1,0 +1,8 @@
+{
+  "default": true,
+  "ul-style": false,
+  "no-emphasis-as-header": false,
+  "line-length": false,
+  "fenced-code-language": false,
+  "ol-prefix": false
+}

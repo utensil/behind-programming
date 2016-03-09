@@ -62,7 +62,7 @@
   - 使用官方的[脚手架vue-cli](https://github.com/vuejs/vue-cli)并采用[utensil/webpack](https://github.com/utensil/webpack)模版来生成项目结构，包含[官方webpack](https://github.com/vuejs-templates/webpack)模版中的：
     + [Webpack](https://webpack.github.io/) + [vue-loader](http://vuejs.github.io/vue-loader) 支持 `.vue`单文件组件
     + [Babel](https://babeljs.io/)来将ES6转换为ES5
-    + [Karma](https://karma-runner.github.io)+[Jasmine](http://jasmine.github.io/)来做单元测试  
+    + [Karma](https://karma-runner.github.io)+[Jasmine](http://jasmine.github.io/)来做单元测试
     + [inject-loader](https://github.com/plasticine/inject-loader)来做[Mock](http://vuejs.github.io/vue-loader/workflow/testing-with-mocks.html)
     + [eslint](http://eslint.org/) 做JS静态代码检查
     + [EditorConfig](http://editorconfig.org/) 来配置代码编辑器
@@ -120,4 +120,3 @@
 * [Sublime Terminal](https://packagecontrol.io/packages/Terminal)
 
 这些插件都可以通过[Sublime Text的插件/包管理器Package Control](https://packagecontrol.io/)来安装。
-

@@ -263,12 +263,12 @@ __SLA__
 
 * 写文档（详见F.1）
 * 读文档
-    - 对业已存在的文档尽可能进行阅读理解与自我重新组织。
-    - 避免出现“不写文档我不知道、写了文档我还是不知道”的局面。
+  * 对业已存在的文档尽可能进行阅读理解与自我重新组织。
+  * 避免出现“不写文档我不知道、写了文档我还是不知道”的局面。
 * 不依赖文档
-    - 在没有文档或文档不准确的时候，通过阅读自动化测试用例以及分析理解代码意图来把握代码。
-    - 不要想当然地以文档、函数的命名或者自己的预期来判断代码的实际功能、内部逻辑与副作用。
-    - 避免出现“别人写的代码太晦涩了，我怎么想得到这里会有这么一个弯弯绕绕，出了错也不是我的责任”这类思想上的借口。
+  * 在没有文档或文档不准确的时候，通过阅读自动化测试用例以及分析理解代码意图来把握代码。
+  * 不要想当然地以文档、函数的命名或者自己的预期来判断代码的实际功能、内部逻辑与副作用。
+  * 避免出现“别人写的代码太晦涩了，我怎么想得到这里会有这么一个弯弯绕绕，出了错也不是我的责任”这类思想上的借口。
 
 代码格式化（Format）
 ------------------
@@ -325,7 +325,7 @@ astyle --recursive --indent=spaces=2 *.cpp *.h
 
 __参考__
 
-http://llvm.org/docs/CodingStandards.html#introduction :
+[LLVM Coding Standards：Introduction](http://llvm.org/docs/CodingStandards.html#introduction):
 
 > ...we explicitly do not want patches that do large-scale reformating of existing code. On the other hand, it is reasonable to rename the methods of a class if you’re about to change it in some other way. Just do the reformating as a separate commit from the functionality change.
 
@@ -415,7 +415,7 @@ __贯彻手段__
 
 __参考__
 
-https://github.com/numenta/nupic/wiki/Documenting-NuPIC-with-Doxygen#documenting-conventions
+[Documenting NuPIC with Doxygen: Documenting conventions](https://github.com/numenta/nupic/wiki/Documenting-NuPIC-with-Doxygen#documenting-conventions)
 
 ### F.2 `#include`
 
@@ -435,10 +435,8 @@ https://github.com/numenta/nupic/wiki/Documenting-NuPIC-with-Doxygen#documenting
 
 正确区分使用`<>`和`""`：
 
-* 用 `#include <filename.h>` 格式来引用标准库的头文件（编译器将从
-标准库目录开始搜索）。
-* 用`#include "filename.h"` 格式来引用非标准库的头文件（编译器将
-从用户的工作目录开始搜索）。
+* 用 `#include <filename.h>` 格式来引用标准库的头文件（编译器将从标准库目录开始搜索）。
+* 用`#include "filename.h"` 格式来引用非标准库的头文件（编译器将从用户的工作目录开始搜索）。
 
 __因由__
 
@@ -450,7 +448,7 @@ __样例__
 
 __参考__
 
-http://llvm.org/docs/CodingStandards.html#include-style
+[LLVM Coding Standards: `#include` Style](http://llvm.org/docs/CodingStandards.html#include-style)
 
 ### F.3 行宽
 
@@ -482,7 +480,6 @@ __因由__
 
 __样例__
 
-
 ```cpp
 namespace outer {
 
@@ -502,8 +499,8 @@ __参考__
 
 关于namespace：
 
-* http://google.github.io/styleguide/cppguide.html#Namespace_Formatting
-* http://llvm.org/docs/CodingStandards.html#namespace-indentation
+* [Google C++ Style Guide: Namespace Formatting](http://google.github.io/styleguide/cppguide.html#Namespace_Formatting)
+* [LLVM Coding Standards: Namespace Indentation](http://llvm.org/docs/CodingStandards.html#namespace-indentation)
 
 ### F.5 括号
 
@@ -544,7 +541,7 @@ int Foo(bool isBar) {
     return 1;
   } else {
     return 0;
-  }        
+  }
 }
 ```
 
@@ -660,16 +657,16 @@ int * x = & y;          // 不良的风格：空格割裂了一元操作符和�
 /**
   象“［］”、“.”、“->”这类操作符前后不加空格。
 */
-array[5] = 0; // 不要写成 array [ 5 ] = 0; 
+array[5] = 0; // 不要写成 array [ 5 ] = 0;
 a.method(); // 不要写成 a . method();
-b->method(); // 不要写成 b -> method(); 
+b->method(); // 不要写成 b -> method();
 ```
 
 注释：
 
 ```cpp
 // 注释      // 良好的风格： `//`后空一格
-int x = 1; 
+int x = 1;
 
 //注释       // 不良的风格： `//`后紧跟注释
 int x = 1;
@@ -679,10 +676,9 @@ int x = 1;
 */
 ```
 
-
 __参考__
 
-https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#nl15-use-spaces-sparingly
+[CCG NL.15: Use spaces sparingly](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#nl15-use-spaces-sparingly)
 
 源文件代码组织(Source File)
 --------------------------
@@ -714,9 +710,8 @@ __样例__
 
 __参考__
 
-http://google.github.io/styleguide/cppguide.html#The__define_Guard
-
-https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#sf-source-files
+* [Google C++ Style Guide: The `#define` Guard](http://google.github.io/styleguide/cppguide.html#The__define_Guard)
+* [CCG: Source files](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#sf-source-files)
 
 ### SF.2 定义文件（Definition File）
 
@@ -731,7 +726,7 @@ https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#sf-
 
 __参考__
 
-https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#sf-source-files
+[CCG: Source files](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#sf-source-files)
 
 命名(Naming)
 -----------------
@@ -1048,7 +1043,7 @@ class ObjectGuard
 {
   public:
     ObjectGuard(Object* obj): m_obj(obj) {}
-    
+
     ~ObjectGuard()
     {
       delete m_obj;
@@ -1121,7 +1116,7 @@ __因由__
 
 * 代码可读性下降。
 * 容易引发误用。
- 
+
 未使用的变量的坏处：
 
 * 可能它本来是有用的，但用错了别的变量，导致它被漏用。如果养成习惯留着未使用的变量，就难以发现漏用的变量。
@@ -1162,6 +1157,7 @@ ResultType result = step1();
 // ...判断result有效并使用的...
 result = step2();
 ```
+
 __参考__
 
 * CCG ES.20: Always initialize an object
@@ -1368,12 +1364,9 @@ __参考__
 
 ### L.3 C++11/14语言特性使用
 
-http://herbsutter.com/elements-of-modern-c-style/
-
-http://herbsutter.com/2013/06/05/gotw-91-solution-smart-pointer-parameters/
-
-https://github.com/numenta/nupic/wiki/C--11-14-References
-
+* [Elements of Modern C++ Style](http://herbsutter.com/elements-of-modern-c-style/)
+* [GotW #91 Solution: Smart Pointer Parameters](http://herbsutter.com/2013/06/05/gotw-91-solution-smart-pointer-parameters/)
+* [C++11/14 References](https://github.com/numenta/nupic/wiki/C--11-14-References)
 
 标准库与第三方库使用
 ------------------
