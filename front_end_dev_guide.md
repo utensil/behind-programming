@@ -9,10 +9,11 @@
 暂时请参考：
 
 * [2015前端生态发展回顾](https://github.com/kuitos/kuitos.github.io/issues/32)
+* [前端知识体系教程](https://github.com/AutumnsWind/Front-end-tutorial)
 * [前端组件库](https://github.com/JingwenTian/awesome-frontend)
 * [Frontend Development](https://github.com/dypsilon/frontend-dev-bookmarks)
 * [Awesome JavaScript](https://github.com/sorrycc/awesome-javascript)
-* [awesome之Front-end Development](https://github.com/sindresorhus/awesome#front-end-development)
+* [Awesome之Front-end Development](https://github.com/sindresorhus/awesome#front-end-development)
 
 前端工作流选型
 ---------------
@@ -71,6 +72,7 @@
     + [vue-resource](https://github.com/vuejs/vue-resource) 解决和后端[RESTful服务](https://github.com/marmelab/awesome-rest)通讯的问题
     + [Vuex](https://github.com/vuejs/vuex/) 实现 [Flux](https://facebook.github.io/flux/) ，或者采用兼容 React 和 Vue.js 的 [Redux](https://github.com/rackt/redux/)
   - 再加上：
+    + [lodash](https://lodash.com/)：JavaScript 工具库，更好地支持函数式编程，弥补一些JavaScript标准库的缺憾
     + `jade`
     + `sass-loader` + `node-sass`
     + [vue-async-data](https://github.com/vuejs/vue-async-data)
@@ -120,3 +122,5 @@
 * [Sublime Terminal](https://packagecontrol.io/packages/Terminal)
 
 这些插件都可以通过[Sublime Text的插件/包管理器Package Control](https://packagecontrol.io/)来安装。
+
+如果喜欢[Atom](https://atom.io/)，建议参考 [utensil的Atom配置](https://github.com/utensil/config/tree/master/IDE/atom) 。
