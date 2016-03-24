@@ -62,13 +62,15 @@ __贯彻手段__
 __参考__
 ```
 
-用语说明:
+用语规范:
 
-> TODO 待规范用语后在此说明一些异于一般认识的用语，如：
+> TODO 待规范用语后在此说明，如：
 
-* 函数/方法
-* 定义文件/源文件
-* 团队/组织
+* 术语：
+  - 函数/方法
+  - 定义文件/源文件
+  - 团队/组织
+* 列表中句号的使用
 
 理念（Philosophy）
 -----------------
@@ -125,12 +127,8 @@ __因由__
 
 __样例__
 
-TODO 此处应该引用一些规则，或展开阐述一些具体原则。
-
-具体例子包含：
-
-* 一致性：
-* 向下兼容性：
+* D.1 保持一致性
+* D.2 保持向下兼容性
 
 ### P.2 品质的生活
 
@@ -183,27 +181,37 @@ __样例__
 > * Rule of Diversity: Distrust all claims for “one true way”.
 > * Rule of Extensibility: Design for the future, because it will be here sooner than you think.
 
-设计原则
---------
+遵循面向对象的[S.O.L.I.D原则][solid]：
 
-### 保持一致性
+> * S – Single-responsiblity principle
+> * O – Open-closed principle
+> * L – Liskov substitution principle
+> * I – Interface segregation principle
+> * D – Dependency Inversion Principle
+
+[solid]: https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)
+
+设计原则（Design Principles）
+---------------------------------
+
+### D.1 保持一致性
 
 * 技术选型、代码风格等与所属模块保持一致性，团队内模块间保持一致性。
 * 尽可能使用和改善团队内公共的基础设施，而不是自写一套个性化的实现，除非有一系列与基础设施在定位、侧重点、方案取舍等方面存在难以融入却又有必要的差异、定制。
 * 不要违背这两点给他人制造惊喜与陷阱。
 
-### 保持向下兼容性
+### D.2 保持向下兼容性
 
 * 保持向下兼容性，无故不删除函数或修改同名函数语义。
 * 要进行破坏兼容性修改时，应经过团队讨论，并只在Major版本时进行，不在Minor和Patch版本进行。
 * 应维护模块的changelog，包括新增的功能与修复的bug。
 
-### 有损服务，柔性可用
+### D.3 有损服务，柔性可用
 
 * 通过接受并运营牺牲，来提升系统整体支撑能力，确保关键功能的可用性。
 * 在设计阶段就考虑，当系统不能提供完美体验时，设定多级主动体验降级，来为用户提供更好的体验过渡。
 
-### API设计意识与SLA服务意识
+### D.4 API设计意识与SLA服务意识
 
 * 把每一个模块、子模块、类、函数，都当做API来精心雕琢设计，为使用者提供便利。
 * 把每一个子功能，都当做一项服务、一个产品，给出相应的服务标准（SLA）的承诺，并以之为目标导向。
@@ -251,15 +259,16 @@ __SLA__
     + 用户端：Acceptance
     + 服务端：Bottom Line
 
-### 测试驱动开发
+### D.5 测试驱动开发
 
 * 自测通过自动化单元测试进行，而非手工架设依赖的环境并手工触发测试。
 * 通过构造测试用例，来思考代码的异常路径的逻辑。
 * 考虑代码的可测试性，内部代码也组织成小小的API。
 * 新增的工具函数和关键业务逻辑必须编写配套的自动化测试用例（如Java使用JUnit，C++使用Google Test）。
+* 应持续提升自动化测试覆盖率。
 * 对依赖的外部系统，必须写能够模拟正常和异常返回的桩，利于联调测试开展。
 
-### 代码中的文档
+### D.6 代码中的文档
 
 * 写文档（详见F.1）
 * 读文档
@@ -358,60 +367,55 @@ __因由__
 
 __样例__
 
-TODO 待翻译；待纳入TODO、@deprecated等
 
 ```cpp
 
-  /** One line class description for Doxygen.
-   *
-   * A detailed description follows the one line description.
-   * Detailed description should include responsibility (what
-   * does this class do?).
-   *
+  /**
+    关于该类的一行简短描述。
+    
+    关于该类的详细描述，如：职责。
    */
   class ClassName
   {
   public:
 
     /**
-     * Brief description of method for Doxygen.
-     *
-     * More detailed description includes explanation of error checking.
+      关于该函数的一行简短描述。
+      
+      关于该函数的详细描述，如：参数、行为和异常处理。
+
+      详见D.4
+
+      @param foo 参数foo的意义、用法、取值限制等。
+
+      @returns 返回值的说明。如果显然，可忽略。 
      */
-    virtual void anExampleMethod();
+    virtual int anExampleMethod(int foo);
 
     /**
-     * Brief description of method for Doxygen.
-     *
-     * More detailed description includes explanation of parameters
-     * and error checking.
-     *
-     * @param foo Description of parameter foo including valid
-     * range and (any) error checking.
-     *
-     * @retval Description of return value of this method.
-     */
-    virtual int anotherMethod(int foo);
+      对于废弃的成员函数，应标注:
 
-  protected:
+      @deprecated
+
+      并说明原因和替代它的函数。
+
+      @see anExampleMethod
+
+      可以适当标注一些TODO事项，按如下格式：
+
+      TODO 在下一个major版本移除该方法。
+    */
+    void aDeprecatedMethod();
 
   private:
-    /** An example private data member. */
-    int m_AnExampleDataMember;
-
     /**
-     * Default ctor, copy ctor and assignment operator
-     * forbidden by default
-     */
-    ClassName();
-    ClassName(const ClassName &);
-    ClassName& operator=(const ClassName&);
+      关于该成员变量的描述
+    */
+    int m_anExampleDataMember;
 
-  }; // end class ClassName
+  }; // class ClassName
 
 ```
-
-__贯彻手段__
 
 __参考__
 
@@ -424,9 +428,10 @@ __参考__
 * `#include`应出现在代码的最前面，中间不应穿插其他代码，除了条件编译和头文件保护符。
 * `#include`应遵循如下顺序：
   - 本定义文件对应的头文件（仅适用于定义文件，详见SF.2）
-  - 本项目的头文件
+  - C标准库的头文件
+  - C++标准库的头文件
   - 操作系统/第三方库的头文件
-  - C/C++标准库的头文件
+  - 本项目的头文件
 
 最小依赖原则：
 
@@ -446,9 +451,26 @@ __因由__
 
 __样例__
 
+`foo/server/fooserver.cpp`:
+
+```cpp
+#include "foo/server/fooserver.h"
+
+#include <sys/types.h>
+#include <unistd.h>
+
+#include <hash_map>
+#include <vector>
+
+#include "base/basictypes.h"
+#include "base/commandlineflags.h"
+#include "foo/server/bar.h"
+```
+
 __参考__
 
-[LLVM Coding Standards: `#include` Style](http://llvm.org/docs/CodingStandards.html#include-style)
+* [Google C++ Style Guide: Names and Order of Includes](http://google.github.io/styleguide/cppguide.html#Names_and_Order_of_Includes)
+* [LLVM Coding Standards: `#include` Style](http://llvm.org/docs/CodingStandards.html#include-style)
 
 ### F.3 行宽
 
@@ -459,8 +481,6 @@ __因由__
 * 这是最广泛采用的标准，少量增加（如90）并无意义，只会带来不一致。
 * 虽然现在宽屏已普及，但需要考虑代码对比时，新老文件左右并列显示时依然能完整显示一行。
 * 短的行宽，能够自然抑制3层以上的深度嵌套。
-
-__样例__
 
 __参考__
 
@@ -504,9 +524,14 @@ __参考__
 
 ### F.5 括号
 
-* 当操作符优先级可能有疑问时（尤其是算术类、逻辑类、其他类等2种以上操作符混合时），使用圆括号明确表达优先级。
+花括号：
+
 * 严禁无花括号的`if`/`else`/`for`/`while`等语句。
 * 一致地使用花括号换行风格，详见贯彻手段。建议选择其中的“K & R”风格或“break”风格。
+
+圆括号：
+
+* 当操作符优先级可能有疑问时（尤其是算术类、逻辑类、其他类等2种以上操作符混合时），使用圆括号明确表达优先级。
 
 __样例__
 
@@ -574,26 +599,52 @@ int Foo(bool isBar)
 
 __参考__
 
-括号与操作符优先级：
+圆括号：
 
 * [CCG ES.41: If in doubt about operator precedence, parenthesize](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#es41-if-in-doubt-about-operator-precedence-parenthesize)
 
-### F.6 换行
+### F.6 换行与空行
 
-一行代码只做一件事情，如只定义一个变量，或只写一条语句，或开启一个逻辑块（如函数头、for、if等），便于阅读代码和添加注释。
+合理使用换行：
 
-长表达式要在低优先级操作符处拆分成新行，操作符放在新行之首（以便突出操作符），并进行适当的缩进，使排版整齐，语句可读。
+* 一行代码只做一件事情，如只定义一个变量，或只写一条语句，或开启一个逻辑块（如函数头、for、if等），便于阅读代码和添加注释。
+* 长表达式要在低优先级操作符处拆分成新行，操作符放在新行之首（以便突出操作符），并进行适当的缩进，使排版整齐，语句可读。
 
 一致而适度地使用空行，划分逻辑单元，增强代码可读性：
 
 * 每个独立实体（类、函数）前后应有空行。
 * 函数体内逻辑关系密切的代码间不加空行，逻辑段落间应有空行。
 
-__因由__
-
 __样例__
 
+良好的风格：
+
+```cpp
+int aVariable = 123;
+
+if(aCondition)
+{
+  doSomethingWith(aVariable);
+}
+
+// 打开冰箱门
+openFridge();
+// 塞进大象
+putInElephant();
+// 关闭冰箱门
+closeFridge();
+
+if((veryLongVariable1 >= veryLongVariable2)
+  && (veryLongVariable3 >= veryLongVariable4)
+  && (veryLongVariable5 >= veryLongVariable6))
+{
+  doSomething();
+}
+```
+
 __参考__
+
+*《高质量C++/C 编程指南》规则2-2-1、2-2-2、2-5-2
 
 ### F.7 空格
 
@@ -690,10 +741,8 @@ __参考__
 * 头文件的内容，包括自身的`#include`，应被头文件保护符(header guard, i.e. `ifndef/define/define`）所环绕，防止文件被重复包含，具体格式见样例。
 * 头文件应更少暴露实现细节，如使用[“Pimpl”惯用法](https://en.wikipedia.org/wiki/Opaque_pointer)。
 * 头文件应视为对外API或对内API，使用Doxygen格式进行注释，自动生成文档，详见F.1一节。
-* 一致地使用`.h`或`.hpp`作为C++头文件的文件名后缀。
+* 一致地使用`.h`或`.hpp`作为C++头文件的文件名后缀。建议使用最普遍的`.h`。
 * 注意考虑F.2中提到的关于`#include`的规则。
-
-__因由__
 
 __样例__
 
@@ -733,21 +782,58 @@ __参考__
 
 ### N.0 命名一般规范
 
-* 命名应“名正言顺”，对被命名者，进行具体而不冗长地描述。
-* 命名应使用1个或数个英文单词，不应使用汉语拼音等。
-* 对于常见的业务对象命名，应该在设计阶段就给出一致的英文名，避免在代码的不同地方以近义词进行不一致的命名。
-* 命名应不使用缩写，除非该缩写众所周知或惯用。
-* 命名应不模糊抽象随意，如`data2`。
-* 类型、变量、常量等实体性质的命名，一般可采用“形容词/限定词-名词”的结构。
-* 函数等动作性质的命名，一般可采取“动词-名词”的结构。
-* 布尔类型的变量或函数，应使用“is/has/can/should”等前缀，与其后的“形容词/名词/动词”搭配，表达其语义，反对以`b`作为前缀。
-* 命名不允许出现单词拼写错误和语义错误，可以查词典，也可以在[codelf](http://unbug.github.io/codelf/)搜索建议的命名，以及参考开源代码中实际使用的命名。
+命名应“名正言顺”，对被命名者，进行易于理解、结构规范、具体而简洁地描述：
+
+* 易于理解：
+  - 命名应使用英文名，不应使用汉语拼音。
+  - 对于常见的业务对象命名，应该在设计阶段就给出一致的英文名，避免在代码的不同地方以近义词进行不一致的命名。
+  - 命名不允许出现单词拼写错误和语义错误，可以查词典，也可以在[codelf](http://unbug.github.io/codelf/)搜索建议的命名，以及参考开源代码中实际使用的命名。
+* 结构规范：
+  - 类型、变量、常量等实体性质的命名，一般可采用“形容词/限定词-名词”的结构。
+  - 函数等动作性质的命名，一般可采取“动词-名词”的结构。
+  - 布尔类型的变量或函数，应使用“is/has/can/should”等前缀，与其后的“形容词/名词/动词”搭配，表达其语义，反对以`b`作为前缀。
+* 具体：
+  - 命名中应避免模糊抽象随意，如`data2`、`object`。
+* 简洁：
+  - 命名应使用1-5个英文单词，每个单词宜小于12个字母。
+  - 但不要为了简短，就任意缩减字母或采用并非众所周知的缩写。
 
 __例外__
 
-作用域非常小，而含义因周围代码而较明显时，可使用短小命名。如：
+作用域非常小，而含义因周围代码而较明显时，可使用短小命名。
+
+参见[CCG ES.7: Keep common and local names short, and keep uncommon and nonlocal names longer](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#es7-keep-common-and-local-names-short-and-keep-uncommon-and-nonlocal-names-longer)
+
+__样例__
 
 ```cpp
+/*
+  良好的风格
+*/
+class Animal;
+
+Animal goodDog;
+
+goodDog.run();
+goodDog.eatFood();
+
+bool isRunning = goodDog.isRunning();
+
+/*
+  不良的风格：使用拼音
+*/
+class dongWu;
+
+/*
+  不良的风格：冗长
+*/
+int aVeryLongAndComplicatedAndRedundantName;
+
+/*
+  不良的风格：拼写错误
+*/
+Field filed;
+
 /*
   良好的风格，简炼，更易读：
 
@@ -766,8 +852,8 @@ void print(ostream& os, const vector<T>& v)
 /*
   不良的风格，简单的代码变得冗长：
 */
-template<typename Element_type>
-void print(ostream& target_stream, const vector<Element_type>& current_vector)
+template<typename ElementType>
+void print(ostream& target_stream, const vector<ElementType>& current_vector)
 {
     for (int current_element_index = 0;
             current_element_index < current_vector.end();
@@ -776,10 +862,6 @@ void print(ostream& target_stream, const vector<Element_type>& current_vector)
     target_stream << current_vector[i] << '\n';
 }
 ```
-
-参见[CCG ES.7: Keep common and local names short, and keep uncommon and nonlocal names longer](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md#es7-keep-common-and-local-names-short-and-keep-uncommon-and-nonlocal-names-longer)
-
-__样例__
 
 __参考__
 
@@ -812,10 +894,6 @@ __样例__
 * 命名空间的命名规则同文件。
 * 如果使用了目录划分文件，同一目录下的文件的命名空间应一致，要么直接用顶级命名空间，要么次级命名空间和目录名一致。
 
-__样例__
-
-TODO
-
 ### N.3 类型命名
 
 * 类型命名应采用`CamelCase`的格式，即每个单词首字母大写，其他字母小写，单词间直接相连。
@@ -823,7 +901,8 @@ TODO
 
 __样例__
 
-TODO
+* 良好：`Animal`、`DigitalCamera`、`CWindow`
+* 不良：`animal`、`digital_camera`
 
 ### N.4 常量命名
 
@@ -838,11 +917,19 @@ TODO
   - 成员变量，应采用`m_`前缀。
   - 全局变量，应采用`g_`前缀（但应规避全局变量）。
   - 静态变量，应该用`s_`前缀。
-  - 共享内存变量，应采用`gg_`前缀。（TODO：存在争议）
+  - 共享内存变量，应采用`gg_`前缀。
   - 具备上述多个作用域的，按照`sgm`的顺序（符合英语语序）进行结合。
-* 适度使用易理解的、简化版的匈牙利命名法，如：指针（`p`，代表pointer）(TODO 探讨是否应该用`p_`前缀)、整数（`i`，代表integer）、C风格字符串（`sz`，代表string ends with zero）、C++风格字符串（`str`，代表string）、容器（`vec/set/map/hash`，代表`std::vector/std::set/std::map`）等。
-* 对于在一定语境内反复出现的基础对象，使用易于领会的类型缩写前缀，比如`hash`代表`unordered_map`等。（TODO：存在争议）
 * 对于在一定语境内反复出现的业务对象，坚持使用N.0中提到的“形容词/限定词-名词”结构。
+
+存在争议项：
+
+* 可选、适度使用易理解的、简化版的匈牙利命名法，如：
+  - 整数（`i`，代表integer）
+  - C风格字符串（`sz`，代表string ends with zero）
+  - C++风格字符串（`str`，代表string）
+  - STL容器（`vec/set/map/hash`，代表`std::vector/std::set/std::map`）
+* 指针（使用`p_`前缀，代表pointer）
+* 对于在一定语境内反复出现的基础对象，使用易于领会的类型缩写前缀，比如`hash`代表`unordered_map`等。
 
 ### N.6 函数命名
 
@@ -1206,7 +1293,7 @@ __参考__
 
 ### B.7 重视警告
 
-应重视编译器和静态代码的警告，及时修正。
+应重视编译器和静态代码检查（如cppcheck）的警告，及时修正。
 
 函数体代码组织（Function Body）
 -----------------------------
@@ -1388,6 +1475,8 @@ else
 
 ### FB.5 返回值风格的异常处理
 
+任何时候都要检查函数的返回值。
+
 ### FB.6 C++异常风格的异常处理
 
 要善用异常，不要如[Google C++ Style Guide： Exceptions](http://google.github.io/styleguide/cppguide.html#Exceptions)那般恐惧异常。
@@ -1401,8 +1490,100 @@ else
 
 写异常安全的代码：
 
+* 捕获异常时应写至少3个`catch`块：业务自定义异常、`std::exception`、`...`。
+* 捕获异常时应用const引用。
+* 不要将整数、字符串等基础类型作为异常抛出。
 * 任何时候都要假设代码可能异常被中断，包括被异常、`break`、`return`等，熟练使用RAII技术做好资源管理，防止资源泄漏，见B.3 。
 * 严禁使用带throw (XXXException)的异常声明，见FB.1 。
+
+__样例__
+
+```cpp
+/*
+  良好的风格：
+*/
+void inner()
+{
+  if(conditionXXX)
+  {
+    throw XYZException(/* 错误码 */123456, /* 错误信息 */"某某条件不满足");
+  }
+}
+
+void middle()
+{
+  inner();
+}
+
+void outter()
+{
+  try
+  {
+    middle();
+  }
+  catch(const XYZException & e)
+  {
+    // e.getErrorCode()
+    // e.getErrorInfo()
+  }
+  catch(const std::exception & e)
+  {
+    // e.what();
+  }
+  catch(...)
+  {
+    // 打印日志、统计或告警
+  }
+}
+
+var cycle()
+{
+  while(condition)
+  {
+    try
+    {
+      middle();
+    }
+    catch(const XYZException & e)
+    {
+      // e.getErrorCode()
+      // e.getErrorInfo()
+    }
+    catch(const std::exception & e)
+    {
+      // e.what();
+    }
+    catch(...)
+    {
+      // 打印日志、统计或告警
+    }
+  }
+}
+
+/*
+  不良的风格：
+*/
+void fun()
+{
+  try
+  {
+    step1()
+  }
+  catch(const XXXException & e)
+  {
+    // ...
+  }
+
+  try
+  {
+    step2()
+  }
+  catch(const YYYException & e)
+  {
+    // ...
+  }
+}
+```
 
 类体代码组织
 ----------------
@@ -1471,6 +1652,6 @@ __参考__
 * [C++ Coding Standards](http://www.gotw.ca/publications/c++cs.htm)
 * [C++ Core Guidelines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md)
 * [NuPIC C++ Coding Guide](https://github.com/numenta/nupic/wiki/C-Coding-Guide)
-* [林锐的“高质量C++/C 编程指南”](http://www.chinastor.org/upload/2014-04/14040815326461.pdf)
+* [林锐的《高质量C++/C 编程指南》](http://www.chinastor.org/upload/2014-04/14040815326461.pdf)
 * [Principles Wiki](http://principles-wiki.net/principles:start)
 * [Common Weakness Enumeration](https://cwe.mitre.org/index.html)
