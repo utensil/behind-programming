@@ -9,10 +9,11 @@
 暂时请参考：
 
 * [2015前端生态发展回顾](https://github.com/kuitos/kuitos.github.io/issues/32)
+* [前端知识体系教程](https://github.com/AutumnsWind/Front-end-tutorial)
 * [前端组件库](https://github.com/JingwenTian/awesome-frontend)
 * [Frontend Development](https://github.com/dypsilon/frontend-dev-bookmarks)
 * [Awesome JavaScript](https://github.com/sorrycc/awesome-javascript)
-* [awesome之Front-end Development](https://github.com/sindresorhus/awesome#front-end-development)
+* [Awesome之Front-end Development](https://github.com/sindresorhus/awesome#front-end-development)
 
 前端工作流选型
 ---------------
@@ -50,7 +51,10 @@
     + 想要对比这些语言，请见[TypeScript vs. CoffeeScript vs. ES6](http://www.slideshare.net/NeilGreen1/type-script-vs-coffeescript-vs-es6)
   - 使用[Babel](https://babeljs.io/)将ES6预编译成ES5来在浏览器中运行
 * CSS框架选用众所周知的[Bootstrap](http://v4-alpha.getbootstrap.com/)
-  - 直接选择其[版本4](http://blog.getbootstrap.com/2015/08/19/bootstrap-4-alpha/)
+  - 直接选择其[版本4](http://blog.getbootstrap.com/2015/08/19/bootstrap-4-alpha/)，参考:
+    + [What's New in Bootstrap 4?](http://bootstrap4.guide/)
+    + [正在开发切换到Bootstrap 4的AdminLTE模版](https://github.com/almasaeed2010/AdminLTE/milestones/v3.0.0-alpha)
+    + [Bootstrap 4 Admin Dashboard Demo](http://www.bootstrapzero.com/bootstrap-template/bootstrap-4-admin-dashboard)
   - 不选择目前受众最广的[版本3](http://getbootstrap.com/)，主要考虑到前端发展一日千里，版本3很快会失去支持，而且版本4提供了很多新的组件和特性，尤其是[Flexbox](https://github.com/afonsopacifer/awesome-flexbox)相关的特性。
 * SASS框架：
   - 选择[Bourbon](http://bourbon.io/)+[Neat](http://neat.bourbon.io/)
@@ -71,6 +75,7 @@
     + [vue-resource](https://github.com/vuejs/vue-resource) 解决和后端[RESTful服务](https://github.com/marmelab/awesome-rest)通讯的问题
     + [Vuex](https://github.com/vuejs/vuex/) 实现 [Flux](https://facebook.github.io/flux/) ，或者采用兼容 React 和 Vue.js 的 [Redux](https://github.com/rackt/redux/)
   - 再加上：
+    + [lodash](https://lodash.com/)：JavaScript 工具库，更好地支持函数式编程，弥补一些JavaScript标准库的缺憾
     + `jade`
     + `sass-loader` + `node-sass`
     + [vue-async-data](https://github.com/vuejs/vue-async-data)
@@ -120,3 +125,5 @@
 * [Sublime Terminal](https://packagecontrol.io/packages/Terminal)
 
 这些插件都可以通过[Sublime Text的插件/包管理器Package Control](https://packagecontrol.io/)来安装。
+
+如果喜欢[Atom](https://atom.io/)，建议参考 [utensil的Atom配置](https://github.com/utensil/config/tree/master/IDE/atom) 。

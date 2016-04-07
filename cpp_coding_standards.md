@@ -630,7 +630,7 @@ if(aCondition)
 // 打开冰箱门
 openFridge();
 // 塞进大象
-PutInElephant();
+putInElephant();
 // 关闭冰箱门
 closeFridge();
 
