@@ -1622,10 +1622,13 @@ __参考__
 
 * [Elements of Modern C++ Style](http://herbsutter.com/elements-of-modern-c-style/)
 * [GotW #91 Solution: Smart Pointer Parameters](http://herbsutter.com/2013/06/05/gotw-91-solution-smart-pointer-parameters/)
+* [Guru of the Week(Revised for C++14)](http://herbsutter.com/gotw/)
 * [C++11/14 References](https://github.com/numenta/nupic/wiki/C--11-14-References)
 
 标准库与第三方库使用
 ------------------
+
+第三方库可以从这里寻找备选者：[Awesome C/C++](https://github.com/fffaraz/awesome-cpp)
 
 团队定制规则
 --------------
