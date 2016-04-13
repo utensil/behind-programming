@@ -24,7 +24,7 @@ C++编码规范
 
 编程规范的编辑体例，应该像GoF在著名的《设计模式》中一样，构筑自洽完备的表述结构，就像代码的组织要遵循良好的结构一样。
 
-《Google C++ Style Guide》的“Definition/Pros/Cons/Decision”的体例，更像一份讨论权衡而不是规范，留下了很多模糊的空间，没有保持逻辑的自洽，更像一个折衷产物和半成品。《LLVM Coding Standards》的体例更像散文。《C++ Coding Standards》的“Item title/Summary/Examples/Exceptions/References”不够完备。《高质量C++/C 编程指南》采用的规则条文式体例，每条规则都干净专注，有其可取之处，但本规范希望将相关的一系列规则融合成一体。
+《Google C++ Style Guide》的“Definition/Pros/Cons/Decision”的体例，更像一份讨论权衡而不是规范，留下了很多模糊的空间，没有保持逻辑的自洽，更像一个折衷产物和半成品，且部分条款具备误导性（参考[《Why Google Style Guide for C++ is a deal-breaker》](https://www.linkedin.com/pulse/20140503193653-3046051-why-google-style-guide-for-c-is-a-deal-breaker)）。《LLVM Coding Standards》的体例更像散文。《C++ Coding Standards》的“Item title/Summary/Examples/Exceptions/References”不够完备。《高质量C++/C 编程指南》采用的规则条文式体例，每条规则都干净专注，有其可取之处，但本规范希望将相关的一系列规则融合成一体。
 
 本编程规范的编辑体例与组织结构，基本与C++之父Bjarne Stroustrup最新尚在Github上协作撰写的、面向C++14的《C++ Core Guidelines》(下文简称`CCG`)一致，从其他编程规范中，也吸取了部分元素。
 
@@ -337,6 +337,8 @@ __参考__
 [LLVM Coding Standards：Introduction](http://llvm.org/docs/CodingStandards.html#introduction):
 
 > ...we explicitly do not want patches that do large-scale reformating of existing code. On the other hand, it is reasonable to rename the methods of a class if you’re about to change it in some other way. Just do the reformating as a separate commit from the functionality change.
+
+TODO: 待补充或替换为：[ClangFormat](http://clang.llvm.org/docs/ClangFormatStyleOptions.html)
 
 ### F.1 注释
 
@@ -1654,7 +1656,14 @@ __参考__
 * [LLVM Coding Standards](http://llvm.org/docs/CodingStandards.html)
 * [C++ Coding Standards](http://www.gotw.ca/publications/c++cs.htm)
 * [C++ Core Guidelines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md)
+* [Chromium’s style guide](http://www.chromium.org/developers/coding-style)
+* [Mozilla’s style guide](https://developer.mozilla.org/en-US/docs/Developer_Guide/Coding_Style)
+* [WebKit’s style guide](http://www.webkit.org/coding/coding-style.html)
+* [Joint Strike Fighter Air Vehicle C++ Coding Standards](http://www.stroustrup.com/JSF-AV-rules.pdf)
+* [POCO C++ Libraries Coding Style Guide](http://www.appinf.com/download/CppCodingStyleGuide.pdf)
+* [Blink Code Style](http://www.chromium.org/blink/coding-style)
 * [NuPIC C++ Coding Guide](https://github.com/numenta/nupic/wiki/C-Coding-Guide)
 * [林锐的《高质量C++/C 编程指南》](http://www.chinastor.org/upload/2014-04/14040815326461.pdf)
+* TODO: 华为C++编码规范
 * [Principles Wiki](http://principles-wiki.net/principles:start)
 * [Common Weakness Enumeration](https://cwe.mitre.org/index.html)
