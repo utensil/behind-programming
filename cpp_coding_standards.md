@@ -340,6 +340,29 @@ __参考__
 
 TODO: 待补充或替换为：[ClangFormat](http://clang.llvm.org/docs/ClangFormatStyleOptions.html)
 
+TODO：`.astylerc`的使用
+
+```
+# 缩进：2个空格，禁用Tab
+--indent=spaces=2
+# 将注释和下一行代码对齐。
+--indent-col1-comments 
+# 'if', 'for', 'while'等代码块前后增加1个空行。
+--break-blocks
+# 二元操作符两侧增加1个空格。
+--pad-oper
+# 确保括号两侧无空格。
+--unpad-paren
+# 确保`*`和`&`靠近类型而不是变量名。
+--align-pointer=type --align-reference=type
+# 确保'if', 'for', 'while'等代码块如果只有1条语句，依然加花括号。
+--add-brackets
+# 去掉多行注释每行的`*`前缀。
+--remove-comment-prefix
+# 在逻辑操作符、逗号、括号、分号或空格处断开，使得每行长度小于80。
+--max-code-length=80 --break-after-logical
+```
+
 ### F.1 注释
 
 注释贵精不贵多：
