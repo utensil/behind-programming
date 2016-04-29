@@ -4,11 +4,13 @@
 前端生态了解
 -------------------
 
-> TODO：待寻觅合适的slides
+> TODO：待寻觅合适的slides，如[That Js Dude](http://thatjsdude.com/)里的[What's New in ES6](http://khan4019.github.io/ES6/#/) 
 
 暂时请参考：
 
 * [2015前端生态发展回顾](https://github.com/kuitos/kuitos.github.io/issues/32)
+* [2016 JavaScript 技术栈展望](http://pinggod.com/2016/2016-JavaScript-技术栈展望)
+* [一名全栈工程师Node.js之路](http://mp.weixin.qq.com/s?__biz=MzAwMDU1MTE1OQ==&mid=405001493&idx=1&sn=f0ecab9b31bad83fb065ac37bb728245)
 * [前端知识体系教程](https://github.com/AutumnsWind/Front-end-tutorial)
 * [前端组件库](https://github.com/JingwenTian/awesome-frontend)
 * [Frontend Development](https://github.com/dypsilon/frontend-dev-bookmarks)
