@@ -75,7 +75,7 @@
     + [vue-resource](https://github.com/vuejs/vue-resource) 解决和后端[RESTful服务](https://github.com/marmelab/awesome-rest)通讯的问题
     + [Vuex](https://github.com/vuejs/vuex/) 实现 [Flux](https://facebook.github.io/flux/) ，或者采用兼容 React 和 Vue.js 的 [Redux](https://github.com/rackt/redux/)
   - 再加上：
-    + [lodash](https://lodash.com/)：JavaScript 工具库，更好地支持函数式编程，弥补一些JavaScript标准库的缺憾
+    + [lodash](https://lodash.com/)：JavaScript 工具库，更好地支持函数式编程(参见[各种编程范式](https://en.wikipedia.org/wiki/Comparison_of_programming_paradigms))，弥补一些JavaScript标准库的缺憾
     + `jade`
     + `sass-loader` + `node-sass`
     + [vue-async-data](https://github.com/vuejs/vue-async-data)
