@@ -1354,7 +1354,7 @@ __参考__
 
 * [Cppcheck](http://cppcheck.sourceforge.net/)
 * [Clang Static Analyzer](http://clang-analyzer.llvm.org/)
-* [Valgrind](http://valgrind.org/)）
+* [Valgrind](http://valgrind.org/)
 
 函数体代码组织（Function Body）
 -----------------------------
