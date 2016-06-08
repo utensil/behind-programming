@@ -205,7 +205,7 @@ __样例__
 
 * 保持向下兼容性，无故不删除函数或修改同名函数语义。
 * 要进行破坏兼容性修改时，应经过团队讨论，并只在Major版本时进行，不在Minor和Patch版本进行，参考[《Semantic Versioning》](http://semver.org/)。
-* 应维护模块的changelog，包括新增的功能与修复的bug，参考[《Keep a CHANGELOG》](http://keepachangelog.com/)。底线是，在版本合入主干时，以写changelog的认真态度，写commit message，参考[《How to Write a Git Commit Message》]（http://chris.beams.io/posts/git-commit/）和[《The bluejava Git Commit Message Format Guide》](https://github.com/bluejava/git-commit-guide)。更好的建议是用单独的文件来维护changelog。
+* 应维护模块的changelog，包括新增的功能与修复的bug，参考[《Keep a CHANGELOG》](http://keepachangelog.com/)。底线是，在版本合入主干时，以写changelog的认真态度，写commit message，参考[《How to Write a Git Commit Message》](http://chris.beams.io/posts/git-commit/)和[《The bluejava Git Commit Message Format Guide》](https://github.com/bluejava/git-commit-guide)。更好的建议是用单独的文件来维护changelog。
 
 ### D.3 有损服务，柔性可用
 
