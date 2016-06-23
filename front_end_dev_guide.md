@@ -53,12 +53,16 @@
     + [CoffeeScript](http://coffeescript.org/)：Rails社区很火过
     + 想要对比这些语言，请见[TypeScript vs. CoffeeScript vs. ES6](http://www.slideshare.net/NeilGreen1/type-script-vs-coffeescript-vs-es6)
   - 使用[Babel](https://babeljs.io/)将ES6预编译成ES5来在浏览器中运行
-* CSS框架选用众所周知的[Bootstrap](http://v4-alpha.getbootstrap.com/)
-  - 直接选择其[版本4](http://blog.getbootstrap.com/2015/08/19/bootstrap-4-alpha/)，参考:
+* CSS框架选用众所周知的Bootstrap
+  - 可以选择其[版本3](http://getbootstrap.com/)，受众最广，生态最完善。
+    + [AdminLTE模版](https://almsaeedstudio.com/)
+    + [Ace - Responsive Admin Template](https://wrapbootstrap.com/theme/ace-responsive-admin-template-WB0B30DGR)
+  - 可以考虑直接选择其[版本4](http://v4-alpha.getbootstrap.com/)，参考:
+    + 优点是：前端发展一日千里，版本3很快会失去支持，而且版本4提供了很多新的组件和特性，尤其是[Flexbox](https://github.com/afonsopacifer/awesome-flexbox)相关的特性；缺点是：生态还不完善。
     + [What's New in Bootstrap 4?](http://bootstrap4.guide/)
+    + [New Bootstrap 4 alpha](http://blog.getbootstrap.com/2015/12/08/bootstrap-4-alpha-2/)
     + [正在开发切换到Bootstrap 4的AdminLTE模版](https://github.com/almasaeed2010/AdminLTE/milestones/v3.0.0-alpha)
     + [Bootstrap 4 Admin Dashboard Demo](http://www.bootstrapzero.com/bootstrap-template/bootstrap-4-admin-dashboard)
-  - 不选择目前受众最广的[版本3](http://getbootstrap.com/)，主要考虑到前端发展一日千里，版本3很快会失去支持，而且版本4提供了很多新的组件和特性，尤其是[Flexbox](https://github.com/afonsopacifer/awesome-flexbox)相关的特性。
 * SASS框架：
   - 选择[Bourbon](http://bourbon.io/)+[Neat](http://neat.bourbon.io/)
   - 不选择[Compass](http://compass-style.org/)，原因主要是它太重了，见[Sass Frameworks: Compass or Bourbon?](http://www.sitepoint.com/compass-or-bourbon-sass-frameworks/)
@@ -111,7 +115,9 @@
 编辑器选择
 -------------
 
-建议选择[Sublime Text 3](http://www.sublimetext.com/3)，并搭配插件：
+如果喜欢[Atom](https://atom.io/)，建议参考 [utensil的Atom配置](https://github.com/utensil/config/tree/master/IDE/atom) 。
+
+如果喜欢[Sublime Text 3](http://www.sublimetext.com/3)，并搭配插件：
 
 * [EditorConfig](https://github.com/sindresorhus/editorconfig-sublime)
 * [Vue Syntax Highlight](https://github.com/vuejs/vue-syntax-highlight)
@@ -129,4 +135,3 @@
 
 这些插件都可以通过[Sublime Text的插件/包管理器Package Control](https://packagecontrol.io/)来安装。
 
-如果喜欢[Atom](https://atom.io/)，建议参考 [utensil的Atom配置](https://github.com/utensil/config/tree/master/IDE/atom) 。
