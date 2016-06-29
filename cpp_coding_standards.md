@@ -260,6 +260,13 @@ __SLA__
     + 用户端：Acceptance
     + 服务端：Bottom Line
 
+__参考__
+
+* [How to Design a Good API and Why it Matters](http://static.googleusercontent.com/media/research.google.com/zh-CN//pubs/archive/32713.pdf)
+* [The Little Manual of API Design](http://people.mpi-inf.mpg.de/~jblanche/api-design.pdf)
+* [Principles of API Design by Charlie Garrod & Jonathan Aldrich](https://www.cs.cmu.edu/~charlie/courses/15-214/2014-fall/slides/17-api-design.pdf)
+* [API Design Principles in Qt](https://wiki.qt.io/API_Design_Principles)
+
 ### D.5 测试驱动开发
 
 * 自测通过自动化单元测试进行，而非手工架设依赖的环境并手工触发测试。
