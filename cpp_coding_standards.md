@@ -1746,5 +1746,6 @@ __参考__
 * [NuPIC C++ Coding Guide](https://github.com/numenta/nupic/wiki/C-Coding-Guide)
 * [林锐的《高质量C++/C 编程指南》](http://www.chinastor.org/upload/2014-04/14040815326461.pdf)
 * TODO: 华为C++编码规范
+* [SEI CERT C++ Coding Standard](https://www.securecoding.cert.org/confluence/pages/viewpage.action?pageId=637)，也参见[scriptum/cppcheck-rules](https://github.com/scriptum/cppcheck-rules)
 * [Principles Wiki](http://principles-wiki.net/principles:start)
 * [Common Weakness Enumeration](https://cwe.mitre.org/index.html)
