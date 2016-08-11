@@ -1186,22 +1186,20 @@ __样例__
 
 bool doSomething()
 {
-  Object pObject = new Object();
+  Resource* pRc = acquireResource(/* 初始化资源的参数 */);
 
-  int result = step1(*pObject);
+  int result = step1(*pRc);
 
   if(result != 0)
   {
-    delete pObject;
-    pObject = NULL;
+    releaseResource(pRc);
     return false;
   }
 
   // 内部可能抛出exception
-  step2(pObject->aPublicMember);
+  step2(pRc->getSomething());
 
-  delete pObject;
-  pObject = NULL;
+  releaseResource(pRc);
 
   return true;
 }
@@ -1211,39 +1209,39 @@ bool doSomething()
 良好的风格：
 
 ```cpp
-class ObjectGuard
+class ResourceGuard
 {
   public:
-    ObjectGuard(Object* obj): m_obj(obj) {}
-
-    ~ObjectGuard()
+    ResourceGuard(/* 初始化资源的参数 */)
     {
-      delete m_obj;
-      m_obj = NULL;
+      m_pRc = acquireResource(/* 初始化资源的参数 */);
     }
 
-    // 此处应考虑拷贝构造函数等因素，此处略
+    ResourceGuard(Resource* pRc): m_pRc(pRc) {}
 
-    Object& operator * ()
+    ~ResourceGuard()
     {
-      return *m_obj;
+      releaseResource(pRc);
     }
 
-    Object* operator -> ()
-    {
-      return m_obj;
-    }
+    /*
+      此处应考虑拷贝构造函数等因素，略
+    */
+
+    /*
+      此处可以有一系列对资源进行操作的方法
+    */
 
   private:
-    Object * m_obj;
+    Resource* m_pRc;
 };
 
 
 bool doSomething()
 {
-  ObjectGuard pObject(new Object());
+  ResourceGuard pRc(new Resource());
 
-  int result = step1(*pObject);
+  int result = step1(*pRc);
 
   if(result != 0)
   {
@@ -1251,7 +1249,7 @@ bool doSomething()
   }
 
   // 内部可能抛出exception
-  step2(pObject->aPublicMember);
+  step2(pRc->getSomething());
 
   return true;
 }
