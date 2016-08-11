@@ -1006,7 +1006,7 @@ __样例__
   - 指针，应该使用`p`前缀，代表pointer。
   - 函数指针，应该使用`pfn`前缀，代表function pointer。
 * 可选、适度使用易理解的、简化版的匈牙利命名法，如：
-  - 整数（`n`或`i`，代表integer，宜用前者）
+  - 整数（`n`，代表number）
   - C风格字符串（`sz`，代表string ends with zero）
   - C++风格字符串（`str`，代表string）
 * 共享内存变量，可采用`gg_`前缀。
