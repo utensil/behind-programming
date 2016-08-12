@@ -336,7 +336,7 @@ astyle --recursive --indent=spaces=2 *.cpp *.h
 * `--unpad-paren` / `-U`：确保括号两侧无空格。
 * `--align-pointer=type --align-reference=type` / `-k1 -W1`：确保`*`和`&`靠近类型而不是变量名。
 * `--add-brackets` / `-j`：确保'if', 'for', 'while'等代码块如果只有1条语句，依然加花括号。
-* `--remove-comment-prefix` / `-xp`：去掉多行注释每行的`*`前缀。
+* `--remove-comment-prefix` / `-xp`：去掉多行注释每行的`*`前缀，并将注释尾端的` */`前的空格去掉。
 * `--max-code-length=80 --break-after-logical` / `-xC80 -xL`：在逻辑操作符、逗号、括号、分号或空格处断开，使得每行长度小于80。
 
 其他值得注意的地方：
@@ -420,7 +420,7 @@ __样例__
     关于该类的一行简短描述。
 
     关于该类的详细描述，如：职责。
-   */
+  */
   class ClassName
   {
   public:
@@ -435,7 +435,7 @@ __样例__
       @param foo 参数foo的意义、用法、取值限制等。
 
       @returns 返回值的说明。如果显然，可忽略。
-     */
+    */
     virtual int anExampleMethod(int foo);
 
     /**
@@ -590,7 +590,7 @@ if(aCondition) doSomething(); // 不良的例子：无花括号的`if`语句
 
 /*
   良好的例子：只有一行，也要有花括号。
- */
+*/
 if(aCondition)
 {
   doSomething();
@@ -719,7 +719,7 @@ __样例__
 
   * 函数名的定义和调用，都应在视觉上将函数名和被操作的参数关联起来，空格则在括号的基础上进一步制造了距离，所以函数名后、左右括号的内外都不应添加空格。
   * 逗号视觉上不应该突出，所以不能是两边空格；没有空格过于紧凑不利于阅读；逗号靠近后面参数会造成后一个参数以逗号开头的奇怪感觉；综上所以逗号更适宜跟随前面一个参数。
- */
+*/
 void fun(int x, int y, int z); // 良好的风格
 
 /*
@@ -728,7 +728,7 @@ void fun(int x, int y, int z); // 良好的风格
   * 函数名后有多余的空格，造成函数名和参数之间的割裂感。
   * 第一个逗号后无空格，没有合理分隔不同的参数。
   * 第二个逗号前有多余空格，两边的距离把（不重要的）逗号突出出来了。
- */
+*/
 void fun (int x,int y , int z);
 
 /*
@@ -736,12 +736,12 @@ void fun (int x,int y , int z);
 
   * for、if等关键词后面不建议加空格（存在争议，有人推荐加）
   * 如果‘;’不是一行的结束符号，其后要留空格，遵循和函数参数里逗号类似的规则。
- */
+*/
 for(i = 0; i < 10; ++i)
 
 /*
   不良的风格：太少的空格
- */
+*/
 for(i=0;i<10;i++)
 ```
 
@@ -758,7 +758,7 @@ int* x = & y;          // 不良的风格：空格割裂了一元操作符和被
 
 /*
   推荐的风格：确保`*`和`&`靠近类型而不是变量名
- */
+*/
 int* x = NULL;
 void fun(int* param) {}
 
@@ -767,7 +767,7 @@ void fun(int* param) {}
 
   - 如果`*`和`&`在中间，割裂了其和类型的关系
   - 如果`*`和`&`靠近变量名，更像是对变量的操作，而事实并不是
- */
+*/
 int * x = NULL;
 int *x = NULL;
 void fun(int * param) {}
@@ -775,7 +775,7 @@ void fun(int *param) {}
 
 /*
   象“［］”、“.”、“->”这类操作符前后不加空格。
- */
+*/
 array[5] = 0; // 不要写成 array [ 5 ] = 0;
 a.method(); // 不要写成 a . method();
 b->method(); // 不要写成 b -> method();
@@ -792,7 +792,7 @@ int x = 1;
 
 /*
   注释       // 良好的风格： `/**`当行无注释，下一行缩进一级（即2个空格）后，开始注释。
- */
+*/
 ```
 
 __参考__
@@ -887,7 +887,7 @@ __样例__
 ```cpp
 /*
   良好的风格
- */
+*/
 class Animal;
 
 Animal goodDog;
@@ -899,17 +899,17 @@ bool isRunning = goodDog.isRunning();
 
 /*
   不良的风格：使用拼音
- */
+*/
 class dongWu;
 
 /*
   不良的风格：冗长
- */
+*/
 int aVeryLongAndComplicatedAndRedundantName;
 
 /*
   不良的风格：拼写错误
- */
+*/
 Field filed;
 
 /*
@@ -917,7 +917,7 @@ Field filed;
 
   * 模板类型使用惯见的`T`
   * 循环使用惯见的`i`、`j`、`k`等
- */
+*/
 template<typename T>    // good
 void print(ostream& os, const vector<T>& v)
 {
@@ -929,7 +929,7 @@ void print(ostream& os, const vector<T>& v)
 
 /*
   不良的风格，简单的代码变得冗长：
- */
+*/
 template<typename ElementType>
 void print(ostream& target_stream, const vector<ElementType>& current_vector)
 {
@@ -1123,34 +1123,34 @@ __样例__
 ```cpp
 /**
   默认HTTP连接超时，单位：毫秒。
- */
+*/
 const int DEFAULT_HTTP_CONNECT_TIMEOUT_IN_MS = 200;
 
 /**
   每天的秒数。
- */
+*/
 const long SECONDS_PER_DAY = 24 * 60 * 60;
 
 /**
   每个key-value对中的key的大小限制
- */
+*/
 const size_t KEY_SIZE = 128;
 
 /**
   每个key-value对中的value的大小限制
- */
+*/
 const size_t VALUE_SIZE = 512;
 
 /**
   对value做UrlEncode的缓冲区大小
 
   依据：最坏的情况下，全部需要encode，1个字节变成'%'+2个字节的HEX值，膨胀系数为3
- */
+*/
 const size_t ENCODED_VALUE_SIZE = VALUE_SIZE * 3;
 
 /**
   一个报文的大小限制：10kB
- */
+*/
 const size_t PACKET_SIZE = 10 * 1024;
 
 ```
@@ -1238,7 +1238,7 @@ class ResourceGuard
     */
 
     /*
-      此处可以有一系列对资源进行操作的方法
+      此处可以有一系列对资源进行操作的方法，略
     */
 
   private:
@@ -1317,7 +1317,7 @@ __样例__
 
   * 没有立刻初始化。
   * 一行声明多个变量，违反F.6
- */
+*/
 int i, j, k;
 // 100行无关代码
 i = 3;
@@ -1328,12 +1328,12 @@ k = i + j;
 
 /*
   不良的风格：代码声明后没有使用。
- */
+*/
 int neverUsed;
 
 /*
   不良的风格：一个变量用作多个用途。
- */
+*/
 ResultType result = step1();
 // ...判断result有效并使用的...
 result = step2();
@@ -1482,7 +1482,7 @@ __样例__
 
   * 枚举每种情况，对未能枚举的情况，给出了针对性处理。
   * 被比较的常量在==的前方，防止误将==写成=
- */
+*/
 if(CONDITION1 == value)
 {
   // 处理CONDITION1
@@ -1499,7 +1499,7 @@ else
 
 /*
   良好的风格：专用于异常情况或终止条件处理的短路`if`块
- */
+*/
 while(/* 控制主循环条件 */)
 {
   if(/* 循环结束的另一条件 */)
@@ -1523,7 +1523,7 @@ int fun(int input)
 
 /*
   良好的风格： 专用于可选步骤的`if`块，通过注释标明“可选步骤”这个语义。
- */
+*/
 void fun()
 {
   mandatoryStep1();
@@ -1544,7 +1544,7 @@ void fun()
 
   * 多层裸`if`
   * 被比较的常量在==的后方，容易误将==写成=而难以察觉
- */
+*/
 if(value1 == CONST1)
 {
   // 某些动作1
@@ -1560,7 +1560,7 @@ if(value1 == CONST1)
 
 /*
   不良的风格：情况枚举时使用了复杂的组合条件
- */
+*/
 if(CONST1 == value1 && CONST2 == value2)
 {
   // 某些动作1
@@ -1600,7 +1600,7 @@ __样例__
 ```cpp
 /*
   良好的风格：
- */
+*/
 void inner()
 {
   if(conditionXXX)
@@ -1661,7 +1661,7 @@ var cycle()
 
 /*
   不良的风格：
- */
+*/
 void fun()
 {
   try
@@ -1700,7 +1700,7 @@ int ret = doSth();
 
   * 遇到问题只打印日志，却继续运行，可能带来不可预料的问题
   * 日志是固定信息，没有具体的上下文，给问题定位带来不便
- */
+*/
 if(ret != 0)
 {
   log("Something is wrong");
@@ -1711,7 +1711,7 @@ if(ret != 0)
 
   * 遇到问题就返回了一个随手写的返回值幻数，调用者可能没有校验，就算校验也无法知道具体原因
   * 没有留下带有上下文的日志信息，给问题定位带来不便
- */
+*/
 if(ret != 0)
 {
   return -6;
@@ -1724,7 +1724,7 @@ if(ret != 0)
   * `break`可能在循环等情况下，出现非预期的行为
   * 除了`break`之外，还有别的出错可能（如抛出异常），导致未能集中处理异常
 
- */
+*/
 int errorNo = 0;
 
 do
@@ -1748,7 +1748,7 @@ handleErrorNo(errorNo);
   * 违反L.1
   * 突破操守下限，带来破窗效应
 
- */
+*/
 int errorNo = 0;
 
 int ret = doSth();
@@ -1764,7 +1764,7 @@ Error:
 
 /*
   良好的风格：将返回值转换为异常
- */
+*/
 void assertTrue(bool condition, const XXXException& ex)
 {
   if(!condition)
