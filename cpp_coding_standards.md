@@ -1166,7 +1166,7 @@ const size_t PACKET_SIZE = 10 * 1024;
 更好的方式应该是复用如下成熟的资源管理类：
 
 * 管理内存：
-  - 使用C++11标准库的[`std::unique_ptr<T>`](http://en.cppreference.com/w/cpp/memory/unique_ptr)或[`std::shared_ptr<T>`](http://en.cppreference.com/w/cpp/memory/shared_ptr)
+  - 使用C++11标准库的[`std::unique_ptr<T>`](http://en.cppreference.com/w/cpp/memory/unique_ptr)或[`std::shared_ptr<T>`](http://en.cppreference.com/w/cpp/memory/shared_ptr)，参考L.3
   - 使用boost库里对应的[`boost::scoped_ptr<T>`](http://www.boost.org/doc/libs/1_61_0/libs/smart_ptr/scoped_ptr.htm)或[`boost::shared_ptr<T>`](http://www.boost.org/doc/libs/1_61_0/libs/smart_ptr/shared_ptr.htm)，注意其和C++11标准库的行为的差异
 * 管理锁：
   - 使用C++11标准库的[`std::lock_guard<Mutex>`](http://en.cppreference.com/w/cpp/thread/lock_guard)
@@ -1575,11 +1575,7 @@ else
 }
 ```
 
-### FB.5 返回值风格的异常处理
-
-任何时候都要检查函数的返回值。如果因为一些原因，要对返回值进行忽略，应在代码上显式体现这个意图。
-
-### FB.6 C++异常风格的异常处理
+### FB.5 C++异常风格的异常处理
 
 要善用异常，不要如[Google C++ Style Guide： Exceptions](http://google.github.io/styleguide/cppguide.html#Exceptions)那般恐惧异常。
 
@@ -1672,7 +1668,7 @@ void fun()
   {
     step1()
   }
-  catch(const XXXException & e)
+  catch(const XXXException& e)
   {
     // ...
   }
@@ -1681,11 +1677,109 @@ void fun()
   {
     step2()
   }
-  catch(const YYYException & e)
+  catch(const YYYException& e)
   {
     // ...
   }
 }
+```
+
+### FB.6 返回值风格的异常处理
+
+任何时候都要检查函数的返回值。如果因为一些原因，要对返回值进行忽略，应在代码上显式体现这个意图。
+
+对返回值的检查如果不通过，应妥善处置，推荐将其转换成异常，见样例。
+
+__样例__
+
+```cpp
+int ret = doSth();
+
+/*
+  不良的风格：
+
+  * 遇到问题只打印日志，却继续运行，可能带来不可预料的问题
+  * 日志是固定信息，没有具体的上下文，给问题定位带来不便
+ */
+if(ret != 0)
+{
+  log("Something is wrong");
+}
+
+/*
+  不良的风格：
+
+  * 遇到问题就返回了一个随手写的返回值幻数，调用者可能没有校验，就算校验也无法知道具体原因
+  * 没有留下带有上下文的日志信息，给问题定位带来不便
+ */
+if(ret != 0)
+{
+  return -6;
+}
+
+/*
+  不良的风格：采用`do-while-false`惯用法和`break`关键字来实现错误集中处理
+
+  * 并不符合关键字本来的语义，别扭
+  * `break`可能在循环等情况下，出现非预期的行为
+  * 除了`break`之外，还有别的出错可能（如抛出异常），导致未能集中处理异常
+
+ */
+int errorNo = 0;
+
+do
+{
+  int ret = doSth();
+
+  if(ret != 0)
+  {
+    errorNo = -6;
+    break;
+  }
+}
+while(false);
+
+handleErrorNo(errorNo);
+
+/*
+  不良的风格：采用`goto`关键字来实现错误集中处理
+
+  * 违反C++语言设计理念
+  * 违反L.1
+  * 突破操守下限，带来破窗效应
+
+ */
+int errorNo = 0;
+
+int ret = doSth();
+
+if(ret != 0)
+{
+  errorNo = -6;
+  goto Error;
+}
+
+Error:
+  handleErrorNo(errorNo);
+
+/*
+  良好的风格：将返回值转换为异常
+ */
+void assertTrue(bool condition, const XXXException& ex)
+{
+  if(!condition)
+  {
+    throw ex;
+  }
+}
+
+void inner()
+{
+  int ret = doSth();
+  assertTrue(0 == ret, XYZException(/* 错误码 */123456, /* 错误信息 */"某某条件不满足"));
+}
+// 此处略去一系列外层捕获与处理，详见FB.5
+
 ```
 
 类体代码组织
