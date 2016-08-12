@@ -1163,6 +1163,15 @@ const size_t PACKET_SIZE = 10 * 1024;
 
 严禁在业务代码中出现`new`/`delete`对、`lock`/`unlock`对、`open`/`close`对等，应将其用合适的资源管理类封装在内，使得业务代码无需确保其成对出现。
 
+更好的方式应该是复用如下成熟的资源管理类：
+
+* 管理内存：
+  - 使用C++11标准库的[`std::unique_ptr<T>`](http://en.cppreference.com/w/cpp/memory/unique_ptr)或[`std::shared_ptr<T>`](http://en.cppreference.com/w/cpp/memory/shared_ptr)
+  - 使用boost库里对应的[`boost::scoped_ptr<T>`](http://www.boost.org/doc/libs/1_61_0/libs/smart_ptr/scoped_ptr.htm)或[`boost::shared_ptr<T>`](http://www.boost.org/doc/libs/1_61_0/libs/smart_ptr/shared_ptr.htm)，注意其和C++11标准库的行为的差异
+* 管理锁：
+  - 使用C++11标准库的[`std::lock_guard<Mutex>`](http://en.cppreference.com/w/cpp/thread/lock_guard)
+  - 使用boost库里对应的[`boost::lock_guard<Lockable>`](http://www.boost.org/doc/libs/1_61_0/doc/html/thread/synchronization.html#thread.synchronization.lock_guard.lock_guard)，注意其和C++11标准库的行为的差异
+
 __因由__
 
 一般而言，一段代码会有多个出口，比如：
@@ -1254,8 +1263,6 @@ bool doSomething()
   return true;
 }
 ```
-
-更好的方式应该是使用C++11标准库的[`unique_ptr<T>`](http://en.cppreference.com/w/cpp/memory/unique_ptr)或[`shared_ptr<T>`](http://en.cppreference.com/w/cpp/memory/shared_ptr)来管理内存，[`lock_guard<std::mutex>`](http://en.cppreference.com/w/cpp/thread/lock_guard)等管理锁。
 
 __参考__
 
