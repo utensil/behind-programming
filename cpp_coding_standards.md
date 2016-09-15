@@ -1782,10 +1782,44 @@ void inner()
 
 ```
 
-类体代码组织
+类体代码组织（Class Body）
 ----------------
 
-* 构造函数初始化成员
+### C.1 构造函数应合理初始化
+
+构造函数应对所有成员变量进行初始化，并优先使用初始化列表（Initialization Lists）进行初始化，初始化顺序和成员变量声明顺序应一致，并且相关的成员变量应相邻。
+
+构造函数中应该尽可能进行不易失败的轻操作，如果有特别重的初始化操作，可以考虑使用[两阶段初始化（Two-Phase Construction）](http://lux.dmcs.pl/symos/wyklady/04-TwoPhase.pdf) 或[惰性初始化（Lazy initialization）](https://en.wikipedia.org/wiki/Lazy_initialization)。
+
+如果初始化失败或者使用上述两种延迟初始化的惯用法，则应通过异常、设置未初始化标志等可以被后继发现的方式体现其未完成初始化。后继操作时，应首先检查对象是否完成初始化。
+
+对于逻辑上不能在初始化后更改的成员变量不能提供Setter函数。如果对一个成员变量提供了Setter函数，Setter函数应确保更新该成员变量变化之后，关联的其他成员变量得到更新，关联的动作得到执行，且对象的行为不会出现前后不一致等偏差。
+
+__样例__
+
+```cpp
+/*
+  良好的风格
+*/
+class A
+{
+  public:
+    A(int a, const std::string & b) : m_a(a), m_b(b)
+    {
+
+    }
+
+    /* ...... */
+
+  private:
+    int m_a;
+    std::string m_b;
+};
+
+```
+
+### TODO
+
 * 拷贝构造函数等全或无
 * 虚析构函数
 * `public`成员在前
