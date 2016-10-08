@@ -67,6 +67,9 @@
   - 选择[Bourbon](http://bourbon.io/)+[Neat](http://neat.bourbon.io/)
   - 不选择[Compass](http://compass-style.org/)，原因主要是它太重了，见[Sass Frameworks: Compass or Bourbon?](http://www.sitepoint.com/compass-or-bourbon-sass-frameworks/)
   - 如无必要，可以不要框架
+* 几乎必然包含的JS库是[jQuery](http://jquery.com/)
+  - 在移动场景，可以换成其轻量移动版本[Zepto](http://zeptojs.com/)
+  - 大部分活跃维护的jQuery Plugin一般都同时兼容jQuery和Zepto
 * JS框架选用类似[React](https://github.com/enaqx/awesome-react)但更轻的[Vue.js](http://vuejs.org/) ：
   - Vue.js的丰富资料，见[Awesome Vue.js](https://github.com/vuejs/awesome-vue)
   - Vue.js和其他前端框架的比较，请见[Comparison with Other Frameworks](http://vuejs.org/guide/comparison.html)
