@@ -465,7 +465,29 @@ __样例__
 
 __参考__
 
-[Documenting NuPIC with Doxygen: Documenting conventions](https://github.com/numenta/nupic/wiki/Documenting-NuPIC-with-Doxygen#documenting-conventions)
+在使用Doxygen格式写文档时，可以参考如下约定：
+
+- 基础
+  - 启用`JAVADOC_AUTOBRIEF`选项，这样每个文档注释的首行，就成为该方法的简介
+  - 上述方法简介，应使用句号结尾，并用一个空行与其他注释隔开
+  - 使用 `@` to 作为 [Doxygen命令](http://www.stack.nl/~dimitri/doxygen/manual/commands.html)的前缀，而非 `\`
+  - 文档注释依然需要遵循F.3 行宽的规定
+  -  `@param` 和 `@returns` 的文档
+    - 可以不用句号结尾
+    - 每个应新起一行，有整齐的缩进
+    - 对出参使用`@param[out]` 
+    - 参数的文档与返回值的文档中，应用一个空行隔开
+    - 对于返回 `bool`的简单的方法，可以不用提供冗余的文档，直接用`@returns`说明返回值
+- 进阶
+  - 可以使用Doxygen的[Member Groups](http://www.stack.nl/~dimitri/doxygen/manual/grouping.html#memgroup) 特性来为方法分组
+  - 可以使用如下好用的Doxygen命令：
+    - `@name`、`@{` 和 `@}` ：分组
+    - `@a` ：交叉引用参数
+    - `@c` ：交叉引用类型
+    - `@code{.cpp}` ：在文档中给出代码样例
+    - `@note` ：说明注意事项
+    - `@todo` ：说明待办事项，可以生成待办事项列表
+    - `@internal`：避免一些过时的注释出现在文档中
 
 ### F.2 `#include`
 
