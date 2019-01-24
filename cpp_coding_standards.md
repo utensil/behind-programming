@@ -345,15 +345,7 @@ astyle --recursive --indent=spaces=2 *.cpp *.h
 * 对于外部代码或其他不希望格式化的代码，请使用`--exclude=`选项排除
 * 可以考虑将部分规则自动化，每次commit均执行，而另外部分规则，工具自动提示修改的地方，但人工确认才生效。
 
-__参考__
-
-[LLVM Coding Standards：Introduction](http://llvm.org/docs/CodingStandards.html#introduction):
-
-> ...we explicitly do not want patches that do large-scale reformating of existing code. On the other hand, it is reasonable to rename the methods of a class if you’re about to change it in some other way. Just do the reformating as a separate commit from the functionality change.
-
-TODO: 待补充或替换为：[ClangFormat](http://clang.llvm.org/docs/ClangFormatStyleOptions.html)
-
-TODO：`.astylerc`的使用
+综合起来，可将如下`.astylerc`放在项目的根目录并运行`astyle --recursive --options=.astylerc *.cpp *.h`对代码进行格式化：
 
 ```
 # 缩进：2个空格，禁用Tab
@@ -375,6 +367,65 @@ TODO：`.astylerc`的使用
 # 在逻辑操作符、逗号、括号、分号或空格处断开，使得每行长度小于80。
 --max-code-length=80 --break-after-logical
 ```
+
+如果使用的是[ClangFormat](http://clang.llvm.org/docs/ClangFormatStyleOptions.html) （现在很多编辑器都支持用ClangFormat），则可将如下`.clang-format`（可通过 https://zed0.co.uk/clang-format-configurator/ 测试效果）放在项目的根目录：
+
+```
+---
+Language: Cpp
+BasedOnStyle: WebKit
+
+# 不要对#include重排序（人工把握语义）
+SortIncludes: false
+
+# 行宽80字节
+# ColumnLimit:     80
+
+# 缩进：2个空格
+TabWidth: 2
+# 命名空间不缩进
+NamespaceIndentation: None
+# switch里的case缩进一级
+IndentCaseLabels: true
+
+# 总是在花括号前换行
+BreakBeforeBraces: Allman
+# 可选择在非赋值操作符处换行
+BreakBeforeBinaryOperators: NonAssignment
+# 在需要的情况下才在返回类型处换行（声明与定义）
+AlwaysBreakAfterDefinitionReturnType: None
+AlwaysBreakAfterReturnType: None
+# 对空函数与在类中定义的函数，合并到单行
+AllowShortFunctionsOnASingleLine: Inline
+
+# 括号前不加空格
+SpaceBeforeParens: Never
+# 不要在template关键字后插入空格
+# SpaceAfterTemplateKeyword: false
+
+# （多行）函数参数对齐左括号
+AlignAfterOpenBracket: Align
+# 水平对齐二元或三元操作的操作数
+AlignOperands: true
+# 对齐连续的赋值
+AlignConsecutiveAssignments: true
+# 尾部的注释对齐
+AlignTrailingComments: true
+
+# 确保`*`和`&`靠近类型而不是变量名。（WebKit风格已设置）
+# PointerAlignment: Left
+...
+```
+
+由于ClangFormat的命令行自身不支持递归格式化多层目录中的代码，需要自己写脚本（可参考 [clang-format-all](https://github.com/eklitzke/clang-format-all/blob/master/clang-format-all) ）或使用编辑器插件自动进行格式化。
+
+由于ClangFormat不支持将注释和下一行代码对齐、二元操作符两侧增加1个空格、确保`if`/`for`/`while`等代码块如果只有1条语句依然加花括号、空行控制等选项，因此不为本编码规范所推荐，但因其应用广泛，亦不反对。
+
+__参考__
+
+[LLVM Coding Standards：Introduction](http://llvm.org/docs/CodingStandards.html#introduction):
+
+> ...we explicitly do not want patches that do large-scale reformating of existing code. On the other hand, it is reasonable to rename the methods of a class if you’re about to change it in some other way. Just do the reformating as a separate commit from the functionality change.
 
 ### F.1 注释
 
