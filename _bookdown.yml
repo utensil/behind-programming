@@ -1,10 +1,15 @@
 book_filename: "behind-programming"
+clean: [packages.bib, bookdown.bbl]
 language:
+  label:
+    fig: "图 "
+    tab: "表 "
   ui:
-    chapter_name: "Chapter "
+    edit: "编辑"
+    chapter_name: ["第 ", " 章"]
 delete_merged_file: true
 rmd_files:
-  - README.md
+  - index.md
   - SUMMARY.md
   - cpp_coding_standards.md
   - front_end_dev_guide.md
