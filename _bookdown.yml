@@ -1,0 +1,11 @@
+book_filename: "behind-programming"
+language:
+  ui:
+    chapter_name: "Chapter "
+delete_merged_file: true
+rmd_files:
+  - README.md
+  - SUMMARY.md
+  - cpp_coding_standards.md
+  - front_end_dev_guide.md
+  - templates/contingency_plan.md
