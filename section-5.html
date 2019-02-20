@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="section-4.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Behind Programming</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 编程背后</a></li>
+<li class="chapter" data-level="2" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>2</b> Summary</a></li>
+<li class="chapter" data-level="3" data-path="c.html"><a href="c.html"><i class="fa fa-check"></i><b>3</b> C++编码规范</a><ul>
+<li class="chapter" data-level="3.1" data-path="c.html"><a href="c.html#section-3.1"><i class="fa fa-check"></i><b>3.1</b> 目的</a></li>
+<li class="chapter" data-level="3.2" data-path="c.html"><a href="c.html#section-3.2"><i class="fa fa-check"></i><b>3.2</b> 体例结构</a></li>
+<li class="chapter" data-level="3.3" data-path="c.html"><a href="c.html#philosophy"><i class="fa fa-check"></i><b>3.3</b> 理念（Philosophy）</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="c.html"><a href="c.html#p.0-"><i class="fa fa-check"></i><b>3.3.1</b> P.0 以人为本</a></li>
+<li class="chapter" data-level="3.3.2" data-path="c.html"><a href="c.html#p.1-"><i class="fa fa-check"></i><b>3.3.2</b> P.1 演进的自洽</a></li>
+<li class="chapter" data-level="3.3.3" data-path="c.html"><a href="c.html#p.2-"><i class="fa fa-check"></i><b>3.3.3</b> P.2 品质的生活</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="c.html"><a href="c.html#design-principles"><i class="fa fa-check"></i><b>3.4</b> 设计原则（Design Principles）</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="c.html"><a href="c.html#d.1-"><i class="fa fa-check"></i><b>3.4.1</b> D.1 保持一致性</a></li>
+<li class="chapter" data-level="3.4.2" data-path="c.html"><a href="c.html#d.2-"><i class="fa fa-check"></i><b>3.4.2</b> D.2 保持向下兼容性</a></li>
+<li class="chapter" data-level="3.4.3" data-path="c.html"><a href="c.html#d.3-"><i class="fa fa-check"></i><b>3.4.3</b> D.3 有损服务，柔性可用</a></li>
+<li class="chapter" data-level="3.4.4" data-path="c.html"><a href="c.html#d.4-apisla"><i class="fa fa-check"></i><b>3.4.4</b> D.4 API设计意识与SLA服务意识</a></li>
+<li class="chapter" data-level="3.4.5" data-path="c.html"><a href="c.html#d.5-"><i class="fa fa-check"></i><b>3.4.5</b> D.5 测试驱动开发</a></li>
+<li class="chapter" data-level="3.4.6" data-path="c.html"><a href="c.html#d.6-"><i class="fa fa-check"></i><b>3.4.6</b> D.6 代码中的文档</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="c.html"><a href="c.html#format"><i class="fa fa-check"></i><b>3.5</b> 代码格式化（Format）</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="c.html"><a href="c.html#f.0-"><i class="fa fa-check"></i><b>3.5.1</b> F.0 克制重新格式化代码的冲动</a></li>
+<li class="chapter" data-level="3.5.2" data-path="c.html"><a href="c.html#f.1-"><i class="fa fa-check"></i><b>3.5.2</b> F.1 注释</a></li>
+<li class="chapter" data-level="3.5.3" data-path="c.html"><a href="c.html#f.2-include"><i class="fa fa-check"></i><b>3.5.3</b> F.2 <code>#include</code></a></li>
+<li class="chapter" data-level="3.5.4" data-path="c.html"><a href="c.html#f.3-"><i class="fa fa-check"></i><b>3.5.4</b> F.3 行宽</a></li>
+<li class="chapter" data-level="3.5.5" data-path="c.html"><a href="c.html#f.4-"><i class="fa fa-check"></i><b>3.5.5</b> F.4 缩进</a></li>
+<li class="chapter" data-level="3.5.6" data-path="c.html"><a href="c.html#f.5-"><i class="fa fa-check"></i><b>3.5.6</b> F.5 括号</a></li>
+<li class="chapter" data-level="3.5.7" data-path="c.html"><a href="c.html#f.6-"><i class="fa fa-check"></i><b>3.5.7</b> F.6 换行与空行</a></li>
+<li class="chapter" data-level="3.5.8" data-path="c.html"><a href="c.html#f.7-"><i class="fa fa-check"></i><b>3.5.8</b> F.7 空格</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="c.html"><a href="c.html#source-file"><i class="fa fa-check"></i><b>3.6</b> 源文件代码组织(Source File)</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="c.html"><a href="c.html#sf.1-header-file"><i class="fa fa-check"></i><b>3.6.1</b> SF.1 头文件（Header File）</a></li>
+<li class="chapter" data-level="3.6.2" data-path="c.html"><a href="c.html#sf.2-definition-file"><i class="fa fa-check"></i><b>3.6.2</b> SF.2 定义文件（Definition File）</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="c.html"><a href="c.html#naming"><i class="fa fa-check"></i><b>3.7</b> 命名(Naming)</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="c.html"><a href="c.html#n.0-"><i class="fa fa-check"></i><b>3.7.1</b> N.0 命名一般规范</a></li>
+<li class="chapter" data-level="3.7.2" data-path="c.html"><a href="c.html#n.1-"><i class="fa fa-check"></i><b>3.7.2</b> N.1 文件名</a></li>
+<li class="chapter" data-level="3.7.3" data-path="c.html"><a href="c.html#n.2-"><i class="fa fa-check"></i><b>3.7.3</b> N.2 命名空间</a></li>
+<li class="chapter" data-level="3.7.4" data-path="c.html"><a href="c.html#n.3-"><i class="fa fa-check"></i><b>3.7.4</b> N.3 类型命名</a></li>
+<li class="chapter" data-level="3.7.5" data-path="c.html"><a href="c.html#n.4-"><i class="fa fa-check"></i><b>3.7.5</b> N.4 常量命名</a></li>
+<li class="chapter" data-level="3.7.6" data-path="c.html"><a href="c.html#n.5-"><i class="fa fa-check"></i><b>3.7.6</b> N.5 变量命名</a></li>
+<li class="chapter" data-level="3.7.7" data-path="c.html"><a href="c.html#n.6-"><i class="fa fa-check"></i><b>3.7.7</b> N.6 函数命名</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="c.html"><a href="c.html#basics"><i class="fa fa-check"></i><b>3.8</b> 基础编码（Basics）</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="c.html"><a href="c.html#b.0-"><i class="fa fa-check"></i><b>3.8.1</b> B.0 防御性编程</a></li>
+<li class="chapter" data-level="3.8.2" data-path="c.html"><a href="c.html#b.1-"><i class="fa fa-check"></i><b>3.8.2</b> B.1 合理使用配置</a></li>
+<li class="chapter" data-level="3.8.3" data-path="c.html"><a href="c.html#b.2-"><i class="fa fa-check"></i><b>3.8.3</b> B.2 严禁使用幻数</a></li>
+<li class="chapter" data-level="3.8.4" data-path="c.html"><a href="c.html#b.3-raii"><i class="fa fa-check"></i><b>3.8.4</b> B.3 用RAII管理资源的申请与释放</a></li>
+<li class="chapter" data-level="3.8.5" data-path="c.html"><a href="c.html#b.4-"><i class="fa fa-check"></i><b>3.8.5</b> B.4 防止不必要的范围扩大</a></li>
+<li class="chapter" data-level="3.8.6" data-path="c.html"><a href="c.html#b.5-"><i class="fa fa-check"></i><b>3.8.6</b> B.5 变量应有清晰而唯一的用途</a></li>
+<li class="chapter" data-level="3.8.7" data-path="c.html"><a href="c.html#b.6-"><i class="fa fa-check"></i><b>3.8.7</b> B.6 规避已知编码问题</a></li>
+<li class="chapter" data-level="3.8.8" data-path="c.html"><a href="c.html#b.7-"><i class="fa fa-check"></i><b>3.8.8</b> B.7 重视警告</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="c.html"><a href="c.html#function-body"><i class="fa fa-check"></i><b>3.9</b> 函数体代码组织（Function Body）</a><ul>
+<li class="chapter" data-level="3.9.1" data-path="c.html"><a href="c.html#fb.0-"><i class="fa fa-check"></i><b>3.9.1</b> FB.0 函数应中心明确，语义清晰，详略得当，条理分明</a></li>
+<li class="chapter" data-level="3.9.2" data-path="c.html"><a href="c.html#fb.1-"><i class="fa fa-check"></i><b>3.9.2</b> FB.1 函数参数</a></li>
+<li class="chapter" data-level="3.9.3" data-path="c.html"><a href="c.html#fb.2-"><i class="fa fa-check"></i><b>3.9.3</b> FB.2 函数复杂度</a></li>
+<li class="chapter" data-level="3.9.4" data-path="c.html"><a href="c.html#fb.3-"><i class="fa fa-check"></i><b>3.9.4</b> FB.3 主流程函数</a></li>
+<li class="chapter" data-level="3.9.5" data-path="c.html"><a href="c.html#fb.4-ifelse-ifelse"><i class="fa fa-check"></i><b>3.9.5</b> FB.4 写周全的<code>if/else if/else</code></a></li>
+<li class="chapter" data-level="3.9.6" data-path="c.html"><a href="c.html#fb.5-c"><i class="fa fa-check"></i><b>3.9.6</b> FB.5 C++异常风格的异常处理</a></li>
+<li class="chapter" data-level="3.9.7" data-path="c.html"><a href="c.html#fb.6-"><i class="fa fa-check"></i><b>3.9.7</b> FB.6 返回值风格的异常处理</a></li>
+<li class="chapter" data-level="3.9.8" data-path="c.html"><a href="c.html#fb.7-"><i class="fa fa-check"></i><b>3.9.8</b> FB.7 日志打印</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="c.html"><a href="c.html#class-body"><i class="fa fa-check"></i><b>3.10</b> 类体代码组织（Class Body）</a><ul>
+<li class="chapter" data-level="3.10.1" data-path="c.html"><a href="c.html#c.1-"><i class="fa fa-check"></i><b>3.10.1</b> C.1 构造函数应合理初始化</a></li>
+<li class="chapter" data-level="3.10.2" data-path="c.html"><a href="c.html#c.1-"><i class="fa fa-check"></i><b>3.10.2</b> C.1 类的成员（草稿中）</a></li>
+<li class="chapter" data-level="3.10.3" data-path="c.html"><a href="c.html#todo"><i class="fa fa-check"></i><b>3.10.3</b> TODO</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="c.html"><a href="c.html#section-3.11"><i class="fa fa-check"></i><b>3.11</b> 类组织</a></li>
+<li class="chapter" data-level="3.12" data-path="c.html"><a href="c.html#language-feature"><i class="fa fa-check"></i><b>3.12</b> 语言特性使用（Language Feature）</a><ul>
+<li class="chapter" data-level="3.12.1" data-path="c.html"><a href="c.html#l.1-c"><i class="fa fa-check"></i><b>3.12.1</b> L.1 C语言特性使用</a></li>
+<li class="chapter" data-level="3.12.2" data-path="c.html"><a href="c.html#l.2-c9803"><i class="fa fa-check"></i><b>3.12.2</b> L.2 C++98/03语言特性使用</a></li>
+<li class="chapter" data-level="3.12.3" data-path="c.html"><a href="c.html#l.3-c1114"><i class="fa fa-check"></i><b>3.12.3</b> L.3 C++11/14语言特性使用</a></li>
+</ul></li>
+<li class="chapter" data-level="3.13" data-path="c.html"><a href="c.html#section-3.13"><i class="fa fa-check"></i><b>3.13</b> 标准库与第三方库使用</a></li>
+<li class="chapter" data-level="3.14" data-path="c.html"><a href="c.html#section-3.14"><i class="fa fa-check"></i><b>3.14</b> 团队定制规则</a></li>
+<li class="chapter" data-level="3.15" data-path="c.html"><a href="c.html#section-3.15"><i class="fa fa-check"></i><b>3.15</b> 参考文献</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="section-4.html"><a href="section-4.html"><i class="fa fa-check"></i><b>4</b> 前端小队开发指引</a><ul>
+<li class="chapter" data-level="4.1" data-path="section-4.html"><a href="section-4.html#section-4.1"><i class="fa fa-check"></i><b>4.1</b> 前端生态了解</a></li>
+<li class="chapter" data-level="4.2" data-path="section-4.html"><a href="section-4.html#section-4.2"><i class="fa fa-check"></i><b>4.2</b> 前端工作流选型</a></li>
+<li class="chapter" data-level="4.3" data-path="section-4.html"><a href="section-4.html#section-4.3"><i class="fa fa-check"></i><b>4.3</b> 前端技术选型</a></li>
+<li class="chapter" data-level="4.4" data-path="section-4.html"><a href="section-4.html#section-4.4"><i class="fa fa-check"></i><b>4.4</b> 前端开发规范参考</a></li>
+<li class="chapter" data-level="4.5" data-path="section-4.html"><a href="section-4.html#section-4.5"><i class="fa fa-check"></i><b>4.5</b> 编辑器选择</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="section-5.html"><a href="section-5.html"><i class="fa fa-check"></i><b>5</b> 应急预案模版</a><ul>
+<li class="chapter" data-level="5.1" data-path="section-5.html"><a href="section-5.html#section-5.1"><i class="fa fa-check"></i><b>5.1</b> 背景</a></li>
+<li class="chapter" data-level="5.2" data-path="section-5.html"><a href="section-5.html#checklist"><i class="fa fa-check"></i><b>5.2</b> 冲刺工作CHECKLIST</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="section-5.html"><a href="section-5.html#section-5.2.1"><i class="fa fa-check"></i><b>5.2.1</b> 预备变更</a></li>
+<li class="chapter" data-level="5.2.2" data-path="section-5.html"><a href="section-5.html#section-5.2.2"><i class="fa fa-check"></i><b>5.2.2</b> 核验确保</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="section-5.html"><a href="section-5.html#section-5.3"><i class="fa fa-check"></i><b>5.3</b> 预判瓶颈</a></li>
+<li class="chapter" data-level="5.4" data-path="section-5.html"><a href="section-5.html#section-5.4"><i class="fa fa-check"></i><b>5.4</b> 预案概述</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="section-5.html"><a href="section-5.html#section-5.4.1"><i class="fa fa-check"></i><b>5.4.1</b> 预案动作原则</a></li>
+<li class="chapter" data-level="5.4.2" data-path="section-5.html"><a href="section-5.html#section-5.4.2"><i class="fa fa-check"></i><b>5.4.2</b> 默认触发条件</a></li>
+<li class="chapter" data-level="5.4.3" data-path="section-5.html"><a href="section-5.html#section-5.4.3"><i class="fa fa-check"></i><b>5.4.3</b> 自动预案</a></li>
+<li class="chapter" data-level="5.4.4" data-path="section-5.html"><a href="section-5.html#section-5.4.4"><i class="fa fa-check"></i><b>5.4.4</b> 人工预案</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="section-5.html"><a href="section-5.html#section-5.5"><i class="fa fa-check"></i><b>5.5</b> 值守指引</a></li>
+<li class="chapter" data-level="5.6" data-path="section-5.html"><a href="section-5.html#section-5.6"><i class="fa fa-check"></i><b>5.6</b> 瓶颈预案</a></li>
+<li class="chapter" data-level="5.7" data-path="section-5.html"><a href="section-5.html#section-5.7"><i class="fa fa-check"></i><b>5.7</b> 风险预案</a></li>
+<li class="chapter" data-level="5.8" data-path="section-5.html"><a href="section-5.html#section-5.8"><i class="fa fa-check"></i><b>5.8</b> 归因预案</a></li>
+<li class="chapter" data-level="5.9" data-path="section-5.html"><a href="section-5.html#section-5.9"><i class="fa fa-check"></i><b>5.9</b> 预案演习计划</a></li>
+<li class="chapter" data-level="5.10" data-path="section-5.html"><a href="section-5.html#checklist"><i class="fa fa-check"></i><b>5.10</b> 扫尾工作CHECKLIST</a><ul>
+<li class="chapter" data-level="5.10.1" data-path="section-5.html"><a href="section-5.html#section-5.10.1"><i class="fa fa-check"></i><b>5.10.1</b> 复原变更</a></li>
+<li class="chapter" data-level="5.10.2" data-path="section-5.html"><a href="section-5.html#section-5.10.2"><i class="fa fa-check"></i><b>5.10.2</b> 观察核验</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="section-5" class="section level1">
+<h1><span class="header-section-number">第 5 章</span> 应急预案模版</h1>
+<div id="section-5.1" class="section level2">
+<h2><span class="header-section-number">5.1</span> 背景</h2>
+<p>XXXX年XX月XX日XX:XX-XX:XX，将进行XX重大活动。为确保活动期间一切顺利，特制定本应急预案，并进行演习。</p>
+</div>
+<div id="checklist" class="section level2">
+<h2><span class="header-section-number">5.2</span> 冲刺工作CHECKLIST</h2>
+<blockquote>
+<p>注：</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>时间：针对数个关键时间节点排序，如活动前一周、活动前最后一个工作日、活动当天开始前等</li>
+<li>详情：同一类的变更和核验，可以仅记一项，单独一个表格维护其详情，避免太多细节冲淡这里的全局</li>
+</ul>
+</blockquote>
+<div id="section-5.2.1" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> 预备变更</h3>
+<table style="width:44%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>时间</th>
+<th>事项</th>
+<th>方式</th>
+<th>目的</th>
+<th>影响</th>
+<th>负责人</th>
+<th>知会人</th>
+<th>结果记录</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>此时间前必须完成</td>
+<td>变更的具体内容</td>
+<td>如：发版本、改配置等</td>
+<td>希望达成的正面目的</td>
+<td>变更过程可能带来的负面损失与影响</td>
+<td>负责变更的人员</td>
+<td>变更前后需要知会的人员</td>
+<td>核验的实际完成时间与结果：符合预期、不符合预期、调整方案等</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="section-5.2.2" class="section level3">
+<h3><span class="header-section-number">5.2.2</span> 核验确保</h3>
+<table style="width:50%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>时间</th>
+<th>事项</th>
+<th>方式</th>
+<th>目的</th>
+<th>例外</th>
+<th>负责人</th>
+<th>知会人</th>
+<th>结果记录</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>此时间前必须完成</td>
+<td>核验的具体内容</td>
+<td>如：核对脚本、观察监控等</td>
+<td>希望达成的正面目的</td>
+<td>该应确保项的例外，及例外的合理性与影响分析</td>
+<td>负责核验的人员</td>
+<td>核验前后需要知会的人员</td>
+<td>核验的实际完成时间与结果：符合预期、不符合预期、调整方案等</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="section-5.3" class="section level2">
+<h2><span class="header-section-number">5.3</span> 预判瓶颈</h2>
+<blockquote>
+<p>注：以下瓶颈预判按照预判可能的触发先后顺序排列</p>
+</blockquote>
+<table style="width:39%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>模块</th>
+<th>模块类型</th>
+<th>瓶颈类型</th>
+<th>瓶颈依据</th>
+<th>瓶颈量级</th>
+<th>预计影响</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>模块名称</td>
+<td>如：接入层、路由层、逻辑层、缓存层、存储层、外部依赖层等</td>
+<td>如：流量瓶颈、CPU瓶颈、内存瓶颈、磁盘容量等</td>
+<td>简要给出瓶颈依据，如：单机瓶颈（某日压测/生产环境峰值） * 设备数</td>
+<td>将瓶颈换算成某个业务指标，比如请求量</td>
+<td>触及瓶颈后的可能后果</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="section-5.4" class="section level2">
+<h2><span class="header-section-number">5.4</span> 预案概述</h2>
+<div id="section-5.4.1" class="section level3">
+<h3><span class="header-section-number">5.4.1</span> 预案动作原则</h3>
+<p>每个预案必须有可第一时间无脑执行的动作。</p>
+<ul>
+<li>目的：
+<ul>
+<li>避免当场误判、判断出现分歧</li>
+<li>避免当场判断花费过多时间，第一时间采取措施尝试恢复</li>
+</ul></li>
+<li>落实：
+<ul>
+<li>粗粒度的场景，即只有大致现象，给出可第一时间按图索骥的观察分析指引，迅速判断问题成因与分布；可选增加一个一定程度上有损的默认大动作，在超过一定时限仍未确认问题成因与分布，则执行，如休克疗法等；</li>
+<li>细粒度的场景，即问题的成因与分布已经清晰，给出可第一时间执行的修复/切换措施</li>
+<li>部分重度灾难场景，只能等待灾难结束才能恢复业务的，也应该给出相对应的知会/推动动作，包括相关人员与话术</li>
+</ul></li>
+</ul>
+</div>
+<div id="section-5.4.2" class="section level3">
+<h3><span class="header-section-number">5.4.2</span> 默认触发条件</h3>
+<ul>
+<li>业务量级达到预判瓶颈的XX%；</li>
+<li>人为通过监控、告警判断出系统出现健康度问题；</li>
+<li>部分预案设定一个最晚时间，达到该最晚时间，该预案即被触发。</li>
+</ul>
+</div>
+<div id="section-5.4.3" class="section level3">
+<h3><span class="header-section-number">5.4.3</span> 自动预案</h3>
+<p>如果是系统根据一定条件自动执行的应急预案，应说明：</p>
+<ul>
+<li>关键参数、阈值</li>
+<li>核实应急预案已经得到自动执行的观察手段</li>
+<li>自动应急预案失效时，人工的保底预案</li>
+</ul>
+</div>
+<div id="section-5.4.4" class="section level3">
+<h3><span class="header-section-number">5.4.4</span> 人工预案</h3>
+<p>对于人工预案，应说明：</p>
+<ul>
+<li>如何观察与预案相关的指标</li>
+<li>如何发现预案触发的条件得到满足</li>
+<li>预案触发后，详细的操作指引（要求任何一个团队成员都能轻易上手，不存在找不到具体IP之类的信息不对称）</li>
+</ul>
+</div>
+</div>
+<div id="section-5.5" class="section level2">
+<h2><span class="header-section-number">5.5</span> 值守指引</h2>
+<p>此节应包括：</p>
+<ul>
+<li>为了确保预案触发条件得到正确的观察判断，值守人员应该预先熟练的观察操作与判断标准，如针对监控曲线、告警信息、日志等；</li>
+<li>为了确保预案得到执行，值守人员应该预先做好的准备动作，如登陆管理系统、登录部分模块关键生产机器等。</li>
+</ul>
+</div>
+<div id="section-5.6" class="section level2">
+<h2><span class="header-section-number">5.6</span> 瓶颈预案</h2>
+<blockquote>
+<p>注：以下预案按最晚执行时间排序</p>
+</blockquote>
+<table style="width:50%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>模块</th>
+<th>触发条件</th>
+<th>影响分析</th>
+<th>处理方式/时效</th>
+<th>处理步骤</th>
+<th>最晚执行时间</th>
+<th>负责人</th>
+<th>知会人</th>
+<th>结果记录</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>或子业务、子系统</td>
+<td>除默认触发条件外的触发条件，或默认触发条件对应的瓶颈项</td>
+<td>对业务/活动的影响评估</td>
+<td>自动（秒级）/手动(分钟级)</td>
+<td>如发管理指令、修改配置、核对脚本、观察监控等的具体操作指引</td>
+<td>达到该最晚时间，如无问题，该预案措施均执行</td>
+<td>负责预案的人员</td>
+<td>预案操作前后需要知会的人员</td>
+<td>预案的结果记录</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="section-5.7" class="section level2">
+<h2><span class="header-section-number">5.7</span> 风险预案</h2>
+<table style="width:44%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>模块</th>
+<th>风险场景</th>
+<th>影响分析</th>
+<th>处理方式/时效</th>
+<th>处理步骤</th>
+<th>负责人</th>
+<th>知会人</th>
+<th>结果记录</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>或子业务、子系统</td>
+<td>如单机故障、单IDC故障、成功率下降、耗时上升等</td>
+<td>对业务/活动的影响评估</td>
+<td>自动（秒级）/手动(分钟级)</td>
+<td>如发管理指令、修改配置、核对脚本、观察监控等的具体操作指引</td>
+<td>负责预案的人员</td>
+<td>预案操作前后需要知会的人员</td>
+<td>预案的结果记录</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="section-5.8" class="section level2">
+<h2><span class="header-section-number">5.8</span> 归因预案</h2>
+<blockquote>
+<p>为了当某个模糊现象出现时，尽快根据一些监控告警等细致现象，将现象进行归因，从而对应到某个瓶颈或风险</p>
+</blockquote>
+<table>
+<thead>
+<tr class="header">
+<th>现象</th>
+<th>归因依据</th>
+<th>判断标准</th>
+<th>对应预案</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>某一类模糊的现象</td>
+<td>一些辅助判断的监控指标、告警</td>
+<td>每种细致现象的判断条件、标准</td>
+<td>对应的风险/瓶颈预案</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="section-5.9" class="section level2">
+<h2><span class="header-section-number">5.9</span> 预案演习计划</h2>
+<blockquote>
+<p>注：本部分待完善</p>
+</blockquote>
+<ul>
+<li>XX月XX日，第X次演习，演习XXXX部分</li>
+</ul>
+</div>
+<div id="checklist" class="section level2">
+<h2><span class="header-section-number">5.10</span> 扫尾工作CHECKLIST</h2>
+<div id="section-5.10.1" class="section level3">
+<h3><span class="header-section-number">5.10.1</span> 复原变更</h3>
+<blockquote>
+<p>活动虽已结束，在去开展其他项目之前，仍需进行的复原变更，如：恢复活动期间一些超频调整</p>
+</blockquote>
+<table style="width:44%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>时间</th>
+<th>事项</th>
+<th>方式</th>
+<th>目的</th>
+<th>影响</th>
+<th>负责人</th>
+<th>知会人</th>
+<th>结果记录</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>此时间前必须完成</td>
+<td>变更的具体内容</td>
+<td>如：发版本、改配置等</td>
+<td>希望达成的正面目的</td>
+<td>可能带来的负面损失与影响</td>
+<td>负责变更的人员</td>
+<td>变更前后需要知会的人员</td>
+<td>核验的实际完成时间与结果：符合预期、不符合预期、调整方案等</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="section-5.10.2" class="section level3">
+<h3><span class="header-section-number">5.10.2</span> 观察核验</h3>
+<blockquote>
+<p>活动虽已结束，在去开展其他项目之前，仍需观察核验的后置条件，如：跑一些数据对账、出一些活动观察报告等</p>
+</blockquote>
+<table style="width:44%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>时间</th>
+<th>事项</th>
+<th>方式</th>
+<th>目的</th>
+<th>例外</th>
+<th>负责人</th>
+<th>知会人</th>
+<th>结果记录</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>此时间前必须完成</td>
+<td>核验的具体内容</td>
+<td>如：核对脚本、观察监控等</td>
+<td>希望达成的正面目的</td>
+<td>该应确保项的例外，及例外的合理性与影响分析</td>
+<td>负责核验的人员</td>
+<td>核验前后需要知会的人员</td>
+<td>核验的实际完成时间与结果：符合预期、不符合预期、调整方案等</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="section-4.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/utensil/behind-programming/edit/master/templates/contingency_plan.md",
+"text": "编辑"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["behind-programming.pdf", "behind-programming.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

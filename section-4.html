@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="c.html">
+<link rel="next" href="section-5.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Behind Programming</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 编程背后</a></li>
+<li class="chapter" data-level="2" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>2</b> Summary</a></li>
+<li class="chapter" data-level="3" data-path="c.html"><a href="c.html"><i class="fa fa-check"></i><b>3</b> C++编码规范</a><ul>
+<li class="chapter" data-level="3.1" data-path="c.html"><a href="c.html#section-3.1"><i class="fa fa-check"></i><b>3.1</b> 目的</a></li>
+<li class="chapter" data-level="3.2" data-path="c.html"><a href="c.html#section-3.2"><i class="fa fa-check"></i><b>3.2</b> 体例结构</a></li>
+<li class="chapter" data-level="3.3" data-path="c.html"><a href="c.html#philosophy"><i class="fa fa-check"></i><b>3.3</b> 理念（Philosophy）</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="c.html"><a href="c.html#p.0-"><i class="fa fa-check"></i><b>3.3.1</b> P.0 以人为本</a></li>
+<li class="chapter" data-level="3.3.2" data-path="c.html"><a href="c.html#p.1-"><i class="fa fa-check"></i><b>3.3.2</b> P.1 演进的自洽</a></li>
+<li class="chapter" data-level="3.3.3" data-path="c.html"><a href="c.html#p.2-"><i class="fa fa-check"></i><b>3.3.3</b> P.2 品质的生活</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="c.html"><a href="c.html#design-principles"><i class="fa fa-check"></i><b>3.4</b> 设计原则（Design Principles）</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="c.html"><a href="c.html#d.1-"><i class="fa fa-check"></i><b>3.4.1</b> D.1 保持一致性</a></li>
+<li class="chapter" data-level="3.4.2" data-path="c.html"><a href="c.html#d.2-"><i class="fa fa-check"></i><b>3.4.2</b> D.2 保持向下兼容性</a></li>
+<li class="chapter" data-level="3.4.3" data-path="c.html"><a href="c.html#d.3-"><i class="fa fa-check"></i><b>3.4.3</b> D.3 有损服务，柔性可用</a></li>
+<li class="chapter" data-level="3.4.4" data-path="c.html"><a href="c.html#d.4-apisla"><i class="fa fa-check"></i><b>3.4.4</b> D.4 API设计意识与SLA服务意识</a></li>
+<li class="chapter" data-level="3.4.5" data-path="c.html"><a href="c.html#d.5-"><i class="fa fa-check"></i><b>3.4.5</b> D.5 测试驱动开发</a></li>
+<li class="chapter" data-level="3.4.6" data-path="c.html"><a href="c.html#d.6-"><i class="fa fa-check"></i><b>3.4.6</b> D.6 代码中的文档</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="c.html"><a href="c.html#format"><i class="fa fa-check"></i><b>3.5</b> 代码格式化（Format）</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="c.html"><a href="c.html#f.0-"><i class="fa fa-check"></i><b>3.5.1</b> F.0 克制重新格式化代码的冲动</a></li>
+<li class="chapter" data-level="3.5.2" data-path="c.html"><a href="c.html#f.1-"><i class="fa fa-check"></i><b>3.5.2</b> F.1 注释</a></li>
+<li class="chapter" data-level="3.5.3" data-path="c.html"><a href="c.html#f.2-include"><i class="fa fa-check"></i><b>3.5.3</b> F.2 <code>#include</code></a></li>
+<li class="chapter" data-level="3.5.4" data-path="c.html"><a href="c.html#f.3-"><i class="fa fa-check"></i><b>3.5.4</b> F.3 行宽</a></li>
+<li class="chapter" data-level="3.5.5" data-path="c.html"><a href="c.html#f.4-"><i class="fa fa-check"></i><b>3.5.5</b> F.4 缩进</a></li>
+<li class="chapter" data-level="3.5.6" data-path="c.html"><a href="c.html#f.5-"><i class="fa fa-check"></i><b>3.5.6</b> F.5 括号</a></li>
+<li class="chapter" data-level="3.5.7" data-path="c.html"><a href="c.html#f.6-"><i class="fa fa-check"></i><b>3.5.7</b> F.6 换行与空行</a></li>
+<li class="chapter" data-level="3.5.8" data-path="c.html"><a href="c.html#f.7-"><i class="fa fa-check"></i><b>3.5.8</b> F.7 空格</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="c.html"><a href="c.html#source-file"><i class="fa fa-check"></i><b>3.6</b> 源文件代码组织(Source File)</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="c.html"><a href="c.html#sf.1-header-file"><i class="fa fa-check"></i><b>3.6.1</b> SF.1 头文件（Header File）</a></li>
+<li class="chapter" data-level="3.6.2" data-path="c.html"><a href="c.html#sf.2-definition-file"><i class="fa fa-check"></i><b>3.6.2</b> SF.2 定义文件（Definition File）</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="c.html"><a href="c.html#naming"><i class="fa fa-check"></i><b>3.7</b> 命名(Naming)</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="c.html"><a href="c.html#n.0-"><i class="fa fa-check"></i><b>3.7.1</b> N.0 命名一般规范</a></li>
+<li class="chapter" data-level="3.7.2" data-path="c.html"><a href="c.html#n.1-"><i class="fa fa-check"></i><b>3.7.2</b> N.1 文件名</a></li>
+<li class="chapter" data-level="3.7.3" data-path="c.html"><a href="c.html#n.2-"><i class="fa fa-check"></i><b>3.7.3</b> N.2 命名空间</a></li>
+<li class="chapter" data-level="3.7.4" data-path="c.html"><a href="c.html#n.3-"><i class="fa fa-check"></i><b>3.7.4</b> N.3 类型命名</a></li>
+<li class="chapter" data-level="3.7.5" data-path="c.html"><a href="c.html#n.4-"><i class="fa fa-check"></i><b>3.7.5</b> N.4 常量命名</a></li>
+<li class="chapter" data-level="3.7.6" data-path="c.html"><a href="c.html#n.5-"><i class="fa fa-check"></i><b>3.7.6</b> N.5 变量命名</a></li>
+<li class="chapter" data-level="3.7.7" data-path="c.html"><a href="c.html#n.6-"><i class="fa fa-check"></i><b>3.7.7</b> N.6 函数命名</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="c.html"><a href="c.html#basics"><i class="fa fa-check"></i><b>3.8</b> 基础编码（Basics）</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="c.html"><a href="c.html#b.0-"><i class="fa fa-check"></i><b>3.8.1</b> B.0 防御性编程</a></li>
+<li class="chapter" data-level="3.8.2" data-path="c.html"><a href="c.html#b.1-"><i class="fa fa-check"></i><b>3.8.2</b> B.1 合理使用配置</a></li>
+<li class="chapter" data-level="3.8.3" data-path="c.html"><a href="c.html#b.2-"><i class="fa fa-check"></i><b>3.8.3</b> B.2 严禁使用幻数</a></li>
+<li class="chapter" data-level="3.8.4" data-path="c.html"><a href="c.html#b.3-raii"><i class="fa fa-check"></i><b>3.8.4</b> B.3 用RAII管理资源的申请与释放</a></li>
+<li class="chapter" data-level="3.8.5" data-path="c.html"><a href="c.html#b.4-"><i class="fa fa-check"></i><b>3.8.5</b> B.4 防止不必要的范围扩大</a></li>
+<li class="chapter" data-level="3.8.6" data-path="c.html"><a href="c.html#b.5-"><i class="fa fa-check"></i><b>3.8.6</b> B.5 变量应有清晰而唯一的用途</a></li>
+<li class="chapter" data-level="3.8.7" data-path="c.html"><a href="c.html#b.6-"><i class="fa fa-check"></i><b>3.8.7</b> B.6 规避已知编码问题</a></li>
+<li class="chapter" data-level="3.8.8" data-path="c.html"><a href="c.html#b.7-"><i class="fa fa-check"></i><b>3.8.8</b> B.7 重视警告</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="c.html"><a href="c.html#function-body"><i class="fa fa-check"></i><b>3.9</b> 函数体代码组织（Function Body）</a><ul>
+<li class="chapter" data-level="3.9.1" data-path="c.html"><a href="c.html#fb.0-"><i class="fa fa-check"></i><b>3.9.1</b> FB.0 函数应中心明确，语义清晰，详略得当，条理分明</a></li>
+<li class="chapter" data-level="3.9.2" data-path="c.html"><a href="c.html#fb.1-"><i class="fa fa-check"></i><b>3.9.2</b> FB.1 函数参数</a></li>
+<li class="chapter" data-level="3.9.3" data-path="c.html"><a href="c.html#fb.2-"><i class="fa fa-check"></i><b>3.9.3</b> FB.2 函数复杂度</a></li>
+<li class="chapter" data-level="3.9.4" data-path="c.html"><a href="c.html#fb.3-"><i class="fa fa-check"></i><b>3.9.4</b> FB.3 主流程函数</a></li>
+<li class="chapter" data-level="3.9.5" data-path="c.html"><a href="c.html#fb.4-ifelse-ifelse"><i class="fa fa-check"></i><b>3.9.5</b> FB.4 写周全的<code>if/else if/else</code></a></li>
+<li class="chapter" data-level="3.9.6" data-path="c.html"><a href="c.html#fb.5-c"><i class="fa fa-check"></i><b>3.9.6</b> FB.5 C++异常风格的异常处理</a></li>
+<li class="chapter" data-level="3.9.7" data-path="c.html"><a href="c.html#fb.6-"><i class="fa fa-check"></i><b>3.9.7</b> FB.6 返回值风格的异常处理</a></li>
+<li class="chapter" data-level="3.9.8" data-path="c.html"><a href="c.html#fb.7-"><i class="fa fa-check"></i><b>3.9.8</b> FB.7 日志打印</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="c.html"><a href="c.html#class-body"><i class="fa fa-check"></i><b>3.10</b> 类体代码组织（Class Body）</a><ul>
+<li class="chapter" data-level="3.10.1" data-path="c.html"><a href="c.html#c.1-"><i class="fa fa-check"></i><b>3.10.1</b> C.1 构造函数应合理初始化</a></li>
+<li class="chapter" data-level="3.10.2" data-path="c.html"><a href="c.html#c.1-"><i class="fa fa-check"></i><b>3.10.2</b> C.1 类的成员（草稿中）</a></li>
+<li class="chapter" data-level="3.10.3" data-path="c.html"><a href="c.html#todo"><i class="fa fa-check"></i><b>3.10.3</b> TODO</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="c.html"><a href="c.html#section-3.11"><i class="fa fa-check"></i><b>3.11</b> 类组织</a></li>
+<li class="chapter" data-level="3.12" data-path="c.html"><a href="c.html#language-feature"><i class="fa fa-check"></i><b>3.12</b> 语言特性使用（Language Feature）</a><ul>
+<li class="chapter" data-level="3.12.1" data-path="c.html"><a href="c.html#l.1-c"><i class="fa fa-check"></i><b>3.12.1</b> L.1 C语言特性使用</a></li>
+<li class="chapter" data-level="3.12.2" data-path="c.html"><a href="c.html#l.2-c9803"><i class="fa fa-check"></i><b>3.12.2</b> L.2 C++98/03语言特性使用</a></li>
+<li class="chapter" data-level="3.12.3" data-path="c.html"><a href="c.html#l.3-c1114"><i class="fa fa-check"></i><b>3.12.3</b> L.3 C++11/14语言特性使用</a></li>
+</ul></li>
+<li class="chapter" data-level="3.13" data-path="c.html"><a href="c.html#section-3.13"><i class="fa fa-check"></i><b>3.13</b> 标准库与第三方库使用</a></li>
+<li class="chapter" data-level="3.14" data-path="c.html"><a href="c.html#section-3.14"><i class="fa fa-check"></i><b>3.14</b> 团队定制规则</a></li>
+<li class="chapter" data-level="3.15" data-path="c.html"><a href="c.html#section-3.15"><i class="fa fa-check"></i><b>3.15</b> 参考文献</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="section-4.html"><a href="section-4.html"><i class="fa fa-check"></i><b>4</b> 前端小队开发指引</a><ul>
+<li class="chapter" data-level="4.1" data-path="section-4.html"><a href="section-4.html#section-4.1"><i class="fa fa-check"></i><b>4.1</b> 前端生态了解</a></li>
+<li class="chapter" data-level="4.2" data-path="section-4.html"><a href="section-4.html#section-4.2"><i class="fa fa-check"></i><b>4.2</b> 前端工作流选型</a></li>
+<li class="chapter" data-level="4.3" data-path="section-4.html"><a href="section-4.html#section-4.3"><i class="fa fa-check"></i><b>4.3</b> 前端技术选型</a></li>
+<li class="chapter" data-level="4.4" data-path="section-4.html"><a href="section-4.html#section-4.4"><i class="fa fa-check"></i><b>4.4</b> 前端开发规范参考</a></li>
+<li class="chapter" data-level="4.5" data-path="section-4.html"><a href="section-4.html#section-4.5"><i class="fa fa-check"></i><b>4.5</b> 编辑器选择</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="section-5.html"><a href="section-5.html"><i class="fa fa-check"></i><b>5</b> 应急预案模版</a><ul>
+<li class="chapter" data-level="5.1" data-path="section-5.html"><a href="section-5.html#section-5.1"><i class="fa fa-check"></i><b>5.1</b> 背景</a></li>
+<li class="chapter" data-level="5.2" data-path="section-5.html"><a href="section-5.html#checklist"><i class="fa fa-check"></i><b>5.2</b> 冲刺工作CHECKLIST</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="section-5.html"><a href="section-5.html#section-5.2.1"><i class="fa fa-check"></i><b>5.2.1</b> 预备变更</a></li>
+<li class="chapter" data-level="5.2.2" data-path="section-5.html"><a href="section-5.html#section-5.2.2"><i class="fa fa-check"></i><b>5.2.2</b> 核验确保</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="section-5.html"><a href="section-5.html#section-5.3"><i class="fa fa-check"></i><b>5.3</b> 预判瓶颈</a></li>
+<li class="chapter" data-level="5.4" data-path="section-5.html"><a href="section-5.html#section-5.4"><i class="fa fa-check"></i><b>5.4</b> 预案概述</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="section-5.html"><a href="section-5.html#section-5.4.1"><i class="fa fa-check"></i><b>5.4.1</b> 预案动作原则</a></li>
+<li class="chapter" data-level="5.4.2" data-path="section-5.html"><a href="section-5.html#section-5.4.2"><i class="fa fa-check"></i><b>5.4.2</b> 默认触发条件</a></li>
+<li class="chapter" data-level="5.4.3" data-path="section-5.html"><a href="section-5.html#section-5.4.3"><i class="fa fa-check"></i><b>5.4.3</b> 自动预案</a></li>
+<li class="chapter" data-level="5.4.4" data-path="section-5.html"><a href="section-5.html#section-5.4.4"><i class="fa fa-check"></i><b>5.4.4</b> 人工预案</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="section-5.html"><a href="section-5.html#section-5.5"><i class="fa fa-check"></i><b>5.5</b> 值守指引</a></li>
+<li class="chapter" data-level="5.6" data-path="section-5.html"><a href="section-5.html#section-5.6"><i class="fa fa-check"></i><b>5.6</b> 瓶颈预案</a></li>
+<li class="chapter" data-level="5.7" data-path="section-5.html"><a href="section-5.html#section-5.7"><i class="fa fa-check"></i><b>5.7</b> 风险预案</a></li>
+<li class="chapter" data-level="5.8" data-path="section-5.html"><a href="section-5.html#section-5.8"><i class="fa fa-check"></i><b>5.8</b> 归因预案</a></li>
+<li class="chapter" data-level="5.9" data-path="section-5.html"><a href="section-5.html#section-5.9"><i class="fa fa-check"></i><b>5.9</b> 预案演习计划</a></li>
+<li class="chapter" data-level="5.10" data-path="section-5.html"><a href="section-5.html#checklist"><i class="fa fa-check"></i><b>5.10</b> 扫尾工作CHECKLIST</a><ul>
+<li class="chapter" data-level="5.10.1" data-path="section-5.html"><a href="section-5.html#section-5.10.1"><i class="fa fa-check"></i><b>5.10.1</b> 复原变更</a></li>
+<li class="chapter" data-level="5.10.2" data-path="section-5.html"><a href="section-5.html#section-5.10.2"><i class="fa fa-check"></i><b>5.10.2</b> 观察核验</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="section-4" class="section level1">
+<h1><span class="header-section-number">第 4 章</span> 前端小队开发指引</h1>
+<div id="section-4.1" class="section level2">
+<h2><span class="header-section-number">4.1</span> 前端生态了解</h2>
+<blockquote>
+<p>TODO：待寻觅合适的slides，如<a href="http://thatjsdude.com/">That Js Dude</a>里的<a href="http://khan4019.github.io/ES6/#/">What’s New in ES6</a></p>
+</blockquote>
+<p>暂时请参考：</p>
+<ul>
+<li><a href="https://github.com/kuitos/kuitos.github.io/issues/32">2015前端生态发展回顾</a></li>
+<li><a href="http://pinggod.com/2016/2016-JavaScript-技术栈展望">2016 JavaScript 技术栈展望</a></li>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MzAwMDU1MTE1OQ==&amp;mid=405001493&amp;idx=1&amp;sn=f0ecab9b31bad83fb065ac37bb728245">一名全栈工程师Node.js之路</a></li>
+<li><a href="http://pinggod.com/2015/ES2015/">ES2015介绍</a></li>
+<li><a href="https://github.com/AutumnsWind/Front-end-tutorial">前端知识体系教程</a></li>
+<li><a href="https://github.com/JingwenTian/awesome-frontend">前端组件库</a></li>
+<li><a href="https://github.com/dypsilon/frontend-dev-bookmarks">Frontend Development</a></li>
+<li><a href="https://github.com/sorrycc/awesome-javascript">Awesome JavaScript</a></li>
+<li><a href="https://github.com/sindresorhus/awesome#front-end-development">Awesome之Front-end Development</a></li>
+</ul>
+</div>
+<div id="section-4.2" class="section level2">
+<h2><span class="header-section-number">4.2</span> 前端工作流选型</h2>
+<ul>
+<li>使用<a href="https://webpack.github.io/">Webpack</a>，而非<a href="http://browserify.org/">Browserify</a></li>
+<li>如果够用，使用<code>npm</code>自己的<a href="http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/">极简工作流支持</a>，原因参考：</li>
+<li><a href="http://blog.keithcirkel.co.uk/why-we-should-stop-using-grunt/">Why we should stop using Grunt &amp; Gulp</a></li>
+<li><a href="https://ponyfoo.com/articles/choose-grunt-gulp-or-npm">Choose: Grunt, Gulp, or npm?</a></li>
+<li>如果不够，则使用<a href="https://github.com/alferov/awesome-gulp">Gulp</a>加以补充</li>
+<li>不使用<a href="http://gruntjs.com/">GruntJS</a></li>
+</ul>
+</div>
+<div id="section-4.3" class="section level2">
+<h2><span class="header-section-number">4.3</span> 前端技术选型</h2>
+<ul>
+<li>不支持IE等古代浏览器</li>
+<li>字符编码选择<a href="http://htmlpurifier.org/docs/enduser-utf8.html">UTF-8</a>，而非GBK</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML5">HTML5</a></li>
+<li>直接使用HTML来写时，用<a href="http://docs.emmet.io/">Emmet(旧称“Zen Coding”)</a>和Snippets来提升录入效率</li>
+<li>使用<a href="http://jade-lang.com/">Jade</a> 模版语言来写时，用<a href="http://www.html2jade.org/">HTML2jade</a>将HTML片段转换为Jade</li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS3">CSS3</a></li>
+<li>使用 <a href="http://sass-lang.com/guide">SCSS</a> 语法来写</li>
+<li>不使用SASS语法、<a href="http://lesscss.org/">Less</a>，原因参见
+<ul>
+<li><a href="http://www.zingdesign.com/less-vs-sass-its-time-to-switch-to-sass/">Less vs Sass? It’s time to switch to Sass</a></li>
+<li><a href="http://developer.telerik.com/featured/why-bootstrap-4-means-sass-has-won/">Why Bootstrap 4 Means Sass Has Won</a></li>
+</ul></li>
+<li>建议过程中只使用SCSS的一个子集（主要是Variables、Nested、Mixins），将来可能考虑基于<a href="https://github.com/postcss/postcss">PostCSS</a>提供类Scss特性的<a href="https://github.com/jonathantneal/precss">PreCSS</a></li>
+<li>JS</li>
+<li>使用 <a href="http://es6-features.org/">ES6</a>（又称之为ES2015） 来写</li>
+<li>英文资料参考<a href="https://github.com/lukehoban/es6features">Overview of ECMAScript 6 features</a></li>
+<li>中文资料参考<a href="http://es6.ruanyifeng.com/">《ECMAScript 6入门》</a></li>
+<li>不使用：
+<ul>
+<li>ES4：大部分的IE只支持到这个程度，即很多人理解里的古代JS，语言/库特性缺失太严重</li>
+<li><a href="http://yanhaijing.com/es5/">ES5</a>：大部分现代浏览器只支持到这个程度，ES5为JS打下来扎实的语言/库基础</li>
+<li><a href="http://www.typescriptlang.org/">TypeScript</a>：微软出品的ES5/ES6的超集，增加了类型支持和许多语言特性</li>
+<li><a href="http://coffeescript.org/">CoffeeScript</a>：Rails社区很火过</li>
+<li>想要对比这些语言，请见<a href="http://www.slideshare.net/NeilGreen1/type-script-vs-coffeescript-vs-es6">TypeScript vs. CoffeeScript vs. ES6</a></li>
+</ul></li>
+<li>使用<a href="https://babeljs.io/">Babel</a>将ES6预编译成ES5来在浏览器中运行</li>
+<li>CSS框架选用众所周知的Bootstrap</li>
+<li>可以选择其<a href="http://getbootstrap.com/">版本3</a>，受众最广，生态最完善。
+<ul>
+<li><a href="https://almsaeedstudio.com/">AdminLTE模版</a></li>
+<li><a href="https://wrapbootstrap.com/theme/ace-responsive-admin-template-WB0B30DGR">Ace - Responsive Admin Template</a></li>
+</ul></li>
+<li>可以考虑直接选择其<a href="https://getbootstrap.com/docs/4.0/getting-started/introduction/">版本4</a>，参考:    + 优点是：前端发展一日千里，版本3很快会失去支持，而且版本4提供了很多新的组件和特性，尤其是<a href="https://github.com/afonsopacifer/awesome-flexbox">Flexbox</a>相关的特性；缺点是：生态还没那么完善）。
+<ul>
+<li><a href="http://bootstrap4.guide/">What’s New in Bootstrap 4?</a></li>
+<li><a href="http://blog.getbootstrap.com/2015/12/08/bootstrap-4-alpha-2/">New Bootstrap 4 alpha</a></li>
+<li><a href="https://github.com/almasaeed2010/AdminLTE/milestones/v3.0.0-alpha">正在开发切换到Bootstrap 4的AdminLTE模版</a></li>
+<li><a href="http://www.bootstrapzero.com/bootstrap-template/bootstrap-4-admin-dashboard">Bootstrap 4 Admin Dashboard Demo</a></li>
+</ul></li>
+<li>SASS框架：</li>
+<li>选择<a href="http://bourbon.io/">Bourbon</a>+<a href="http://neat.bourbon.io/">Neat</a></li>
+<li>不选择<a href="http://compass-style.org/">Compass</a>，原因主要是它太重了，见<a href="http://www.sitepoint.com/compass-or-bourbon-sass-frameworks/">Sass Frameworks: Compass or Bourbon?</a></li>
+<li>如无必要，可以不要框架</li>
+<li>几乎必然包含的JS库是<a href="http://jquery.com/">jQuery</a></li>
+<li>在移动场景，可以换成其轻量移动版本<a href="http://zeptojs.com/">Zepto</a></li>
+<li>大部分活跃维护的jQuery Plugin一般都同时兼容jQuery和Zepto</li>
+<li>在流量不大的场景（如公司内部应用），可以考虑<a href="http://demos.jquerymobile.com/1.4.5/">jQuery Mobile</a>，它提供了<a href="http://johnpolacek.github.io/scrolldeck.js/decks/responsive/">响应式设计</a>的一个较好实现</li>
+<li>可以考虑<a href="http://jqueryui.com/">jQuery UI</a></li>
+<li>JS框架选用类似<a href="https://github.com/enaqx/awesome-react">React</a>但更轻的<a href="http://vuejs.org/">Vue.js</a> ：</li>
+<li>Vue.js的丰富资料，见<a href="https://github.com/vuejs/awesome-vue">Awesome Vue.js</a></li>
+<li>Vue.js和其他前端框架的比较，请见<a href="http://vuejs.org/guide/comparison.html">Comparison with Other Frameworks</a></li>
+<li>使用官方的<a href="https://github.com/vuejs/vue-cli">脚手架vue-cli</a>并采用<a href="https://github.com/utensil/webpack">utensil/webpack</a>模版来生成项目结构，包含<a href="https://github.com/vuejs-templates/webpack">官方webpack</a>模版中的：
+<ul>
+<li><a href="https://webpack.github.io/">Webpack</a> + <a href="http://vuejs.github.io/vue-loader">vue-loader</a> 支持 <code>.vue</code>单文件组件</li>
+<li><a href="https://babeljs.io/">Babel</a>来将ES6转换为ES5</li>
+<li><a href="https://karma-runner.github.io">Karma</a>+<a href="http://jasmine.github.io/">Jasmine</a>来做单元测试</li>
+<li><a href="https://github.com/plasticine/inject-loader">inject-loader</a>来做<a href="http://vuejs.github.io/vue-loader/workflow/testing-with-mocks.html">Mock</a></li>
+<li><a href="http://eslint.org/">eslint</a> 做JS静态代码检查</li>
+<li><a href="http://editorconfig.org/">EditorConfig</a> 来配置代码编辑器</li>
+</ul></li>
+<li>加上<a href="http://vuejs.org/guide/application.html">Building Large-Scale Apps(Using Vue.js)</a>中推荐的：
+<ul>
+<li><a href="https://github.com/vuejs/vue-router">vue-router</a> 解决路由问题</li>
+<li><a href="https://github.com/vuejs/vue-resource">vue-resource</a> 解决和后端<a href="https://github.com/marmelab/awesome-rest">RESTful服务</a>通讯的问题</li>
+<li><a href="https://github.com/vuejs/vuex/">Vuex</a> 实现 <a href="https://facebook.github.io/flux/">Flux</a> ，或者采用兼容 React 和 Vue.js 的 <a href="https://github.com/rackt/redux/">Redux</a></li>
+</ul></li>
+<li>再加上：
+<ul>
+<li><a href="https://lodash.com/">lodash</a>：JavaScript 工具库，更好地支持函数式编程(参见<a href="https://en.wikipedia.org/wiki/Comparison_of_programming_paradigms">各种编程范式</a>)，弥补一些JavaScript标准库的缺憾</li>
+<li><code>jade</code></li>
+<li><code>sass-loader</code> + <code>node-sass</code></li>
+<li><a href="https://github.com/vuejs/vue-async-data">vue-async-data</a></li>
+<li><a href="https://github.com/Morgul/vueboot">vueboot</a></li>
+<li>在进行Ajax请求时，请使用<a href="http://github.github.io/fetch/"><code>fetch</code> API标准</a>，不要使用<code>jQuery.ajax()</code>或<code>XMLHttpRequest</code>，参见：</li>
+<li><a href="https://fetch.spec.whatwg.org/#fetch-api">Fetch Living Standard</a></li>
+<li><a href="http://jakearchibald.com/2015/thats-so-fetch/">That’s so fetch!</a></li>
+<li><a href="http://mts.io/2015/04/08/webpack-shims-polyfills/">Using webpack with shims and polyfills</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="section-4.4" class="section level2">
+<h2><span class="header-section-number">4.4</span> 前端开发规范参考</h2>
+<blockquote>
+<p>当你难以确定最佳实践的时候，看看业界是怎么做的</p>
+</blockquote>
+<ul>
+<li><a href="https://github.com/Aaaaaashu/Front-End-Style-Guide">前端开发规范手册</a></li>
+<li><a href="http://coderlmn.github.io/code-standards/">前端代码规范 及 最佳实践</a></li>
+<li><a href="https://docs.google.com/document/pub?id=17ICSeE4Qd04-1U-pphmKCAmfgJGEVjqDellbu4oAiqU">豆瓣Javascript代码风格规范</a></li>
+<li><a href="https://docs.google.com/document/pub?id=17dKkWwdaKyNnkwswihHje2cfoMGqbSJLydTIxqFwlQU">豆瓣CSS开发规范</a></li>
+<li><a href="http://nec.netease.com/standard/html-structure.html">网易HTML规范</a></li>
+<li><a href="http://nec.netease.com/standard/css-sort.html">网易CSS开发规范</a></li>
+<li><a href="https://github.com/airbnb/javascript/tree/master/es5">Airbnb JavaScript Style Guide</a></li>
+<li><a href="http://isobar-idev.github.io/code-standards/">Isobar Front-end Code Standards</a></li>
+<li><a href="http://www.yellowshoe.com.au/standards/">PUP Front end standards</a></li>
+<li><a href="http://tech.tmw.co.uk/code/TMW-frontend-guidelines/">TMWtech Front-End Dev guidelines</a></li>
+<li><a href="https://github.com/bendc/frontend-guidelines">Frontend Guidelines</a></li>
+<li><a href="http://taitems.github.io/Front-End-Development-Guidelines/">Front End Development Guidelines</a></li>
+<li><a href="https://24ways.org/2011/front-end-style-guides/">Front-end Style Guides</a></li>
+<li><a href="http://www.sitepoint.com/20-docs-guides-front-end-developers/">20 Useful Docs and Guides for Front-End Developers</a></li>
+</ul>
+</div>
+<div id="section-4.5" class="section level2">
+<h2><span class="header-section-number">4.5</span> 编辑器选择</h2>
+<p>如果喜欢<a href="https://code.visualstudio.com/">VS Code</a>,建议参考<a href="https://github.com/utensil/config/tree/master/IDE/vscode">utensil的VSCode配置</a>。</p>
+<p>如果喜欢<a href="https://atom.io/">Atom</a>，建议参考 <a href="https://github.com/utensil/config/tree/master/IDE/atom">utensil的Atom配置</a> 。</p>
+<p>如果喜欢<a href="http://www.sublimetext.com/3">Sublime Text 3</a>，并搭配插件：</p>
+<ul>
+<li><a href="https://github.com/sindresorhus/editorconfig-sublime">EditorConfig</a></li>
+<li><a href="https://github.com/vuejs/vue-syntax-highlight">Vue Syntax Highlight</a></li>
+<li><a href="https://github.com/sergeche/emmet-sublime">Emmet</a></li>
+<li><a href="https://packagecontrol.io/packages/Jade">Jade</a></li>
+<li><a href="https://packagecontrol.io/search/Sass">Sass</a></li>
+<li><a href="https://packagecontrol.io/packages/Color%20Highlighter">Color Highlighter</a></li>
+<li><a href="https://packagecontrol.io/packages/JavaScriptNext%20-%20ES6%20Syntax">Java Script Next - ES6 Syntax</a></li>
+<li><a href="https://packagecontrol.io/packages/HTML5">HTML5</a></li>
+<li><a href="https://packagecontrol.io/packages/Nodejs">Nodejs</a></li>
+<li><a href="https://github.com/mdegoo/sublime-bootstrap4">Bootstrap 4 - Sublime Plugin</a></li>
+<li><a href="https://packagecontrol.io/packages/jQuery">jQuery</a></li>
+<li><a href="https://packagecontrol.io/packages/ConvertToUTF8">Convert To UTF8</a></li>
+<li><a href="https://packagecontrol.io/packages/Terminal">Sublime Terminal</a></li>
+</ul>
+<p>这些插件都可以通过<a href="https://packagecontrol.io/">Sublime Text的插件/包管理器Package Control</a>来安装。更多可以参考<a href="https://github.com/utensil/config/tree/master/IDE/sublime">utensil的Sublime Text配置</a> 。</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="c.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="section-5.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/utensil/behind-programming/edit/master/front_end_dev_guide.md",
+"text": "编辑"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["behind-programming.pdf", "behind-programming.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
